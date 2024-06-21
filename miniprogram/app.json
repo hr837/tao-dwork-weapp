@@ -8,7 +8,12 @@
     "pages/user-service-agree/user-service-agree",
     "pages/privacy-state/privacy-state",
     "pages/project/project-list/project-list",
-    "pages/mine/certification/certification"
+    "pages/mine/certification/certification",
+    "pages/company/create/create",
+    "pages/company/verify/verify",
+    "pages/company/legal-master/legal-master",
+    "pages/company/upload-certificate/upload-certificate",
+    "pages/company/base-info/base-info"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -53,7 +58,13 @@
     }
   },
   "usingComponents": {
-    "qr-container": "wx-qr"
+    "qr-container": "wx-qr",
+    "t-input": "tdesign-miniprogram/input/input",
+    "t-cell": "tdesign-miniprogram/cell/cell",
+    "t-picker": "tdesign-miniprogram/picker/picker",
+    "t-picker-item": "tdesign-miniprogram/picker-item/picker-item",
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-message": "tdesign-miniprogram/message/message"
   },
   "sitemapLocation": "sitemap.json",
   "useExtendedLib": {

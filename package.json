@@ -49,11 +49,11 @@
   },
   "dependencies": {
     "dayjs": "^1.11.7",
-    "tdesign-miniprogram": "^1.0.4",
+    "tdesign-miniprogram": "^1.4.2",
     "wx-qr": "^0.1.2"
   },
   "devDependencies": {
-    "miniprogram-api-typings": "^3.9.0"
+    "miniprogram-api-typings": "^3.12.2"
   },
   "main": "index.js",
   "repository": {

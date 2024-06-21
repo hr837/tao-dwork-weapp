@@ -1,0 +1,40 @@
+@font-face {
+  font-family: 'iconfont';  /* Project id 4593257 */
+  src: url('//at.alicdn.com/t/c/font_4593257_9twtee56vol.ttf?t=1718900463043') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.iconfont-lock:before {
+  content: "\e7fb";
+}
+
+.iconfont-phone:before {
+  content: "\e60b";
+}
+
+.iconfont-custom-user:before {
+  content: "\e632";
+}
+
+.iconfont-project:before {
+  content: "\e609";
+}
+
+.iconfont-project-new:before {
+  content: "\e836";
+}
+
+.iconfont-face-id:before {
+  content: "\e6c6";
+}
+
+.iconfont-projects:before {
+  content: "\e639";
+}

@@ -1,0 +1,29 @@
+<!--pages/company/create/create.wxml-->
+<t-message id="t-message" />
+
+<view class="page companyCreate">
+  <view class="companyCreate__form">
+    <t-input label="企业名称" align="right" placeholder="请输入企业名称" maxlength="{{30}}" bind:change="onCompanyNameChange" />
+    <t-cell title="所在地区" arrow hover note="{{areaText}}" bind:click="onAreaPicker" />
+    <t-cell title="所属行业" arrow hover note="{{industryText}}" bind:click="onIndustryPicker" />
+    <t-cell title="人员规模" arrow hover note="{{scaleText}}" bind:click="onScalePicker" />
+  </view>
+  <view class="companyCreate__button">
+    <t-button theme="primary" bind:tap="handleSubmit" block>创建</t-button>
+  </view>
+
+  <!-- 地区选择器 -->
+  <t-picker visible="{{areaPickerVisable}}" value="{{area}}" title="选择地区" cancelBtn="取消" confirmBtn="确认" bind:confirm="onAreaChange">
+    <t-picker-item options="{{areaOptions}}" />
+  </t-picker>
+
+  <!-- 行业选择器 -->
+  <t-picker visible="{{industryPickerVisable}}" value="{{industry}}" title="选择行业" cancelBtn="取消" confirmBtn="确认" bind:confirm="onIndustryChange">
+    <t-picker-item options="{{industryOptions}}" />
+  </t-picker>
+
+  <!-- 规模选择器 -->
+  <t-picker visible="{{scalePickerVisable}}" value="{{scale}}" title="选择规模" cancelBtn="取消" confirmBtn="确认" bind:confirm="onScaleChange">
+    <t-picker-item options="{{scaleOptions}}" />
+  </t-picker>
+</view>

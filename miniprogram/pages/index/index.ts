@@ -198,5 +198,10 @@ Page({
    */
   onCertification(_e: any) {
     wx.navigateTo({ url: '/pages/mine/certification/certification' })
+  },
+
+  // 创建企业
+  onCreateCompany() {
+    wx.navigateTo({ url: '/pages/company/create/create' })
   }
 }) 

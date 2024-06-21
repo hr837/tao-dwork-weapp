@@ -19,7 +19,7 @@
     <view style="display: flex; box-sizing: border-box; margin-bottom: 128rpx;">
       <view style="position: relative; margin: 0 64rpx; box-sizing: border-box; width: 100%;">
         <view style="flex: 1; display: flex; box-sizing: border-box; align-items: center; background-color: #fff; border-radius: 20rpx; padding: 32rpx 0; position: absolute; top: -48rpx; left: 0; right: 0;">
-          <view style="flex: 1; display: flex; box-sizing: border-box; align-items: center; justify-content: center;">
+          <view style="flex: 1; display: flex; box-sizing: border-box; align-items: center; justify-content: center;" bind:tap="onCreateCompany">
             <image src="/assets/images/icons/tian-jia.png" style="width: 24rpx; height: 24rpx; margin-right: 12rpx;"></image>
             <view>创建企业</view>
           </view>
