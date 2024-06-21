@@ -1,0 +1,7 @@
+<!--components/common/loading-more/loading-more.wxml-->
+
+<!-- 上拉加载更多控件 -->
+<view class="loading-more">
+  <text wx:if="{{hasMore}}">加载更多...</text>
+  <text wx:else>已加载全部数据</text>
+</view>

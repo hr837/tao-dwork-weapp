@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "select-city": "../select-city/select-city"
+  }
+}

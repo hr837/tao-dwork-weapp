@@ -1,0 +1,55 @@
+<view wx:if='{{isCalShow}}' bind:tap="onCloseCalendar" class="{{isInsert?'':'calendar-box'}} {{isCalShowPlay?'active':''}}" data-id="calendarBox">
+  <view class="calendar-wrapper {{isCalShowPlay?'active':''}}">
+
+    <view class="calendar-panel">
+      <view class="date-prev" data-arrow="0" data-type="month" bind:tap='onCalChange'>
+        <text class="icon">
+          <text class='prev theme-color'></text>
+        </text>
+      </view>
+
+      <view class="calendar-panel-indicator">
+        <view>{{calendar.year}}年</view>
+        <view>{{calendar.month+1}}月</view>
+      </view>
+
+      <view class="date-next" data-arrow="1" data-type="month" bind:tap='onCalChange'>
+        <text class="icon">
+          <text class='next theme-color'></text>
+        </text>
+      </view>
+
+      <view class='backtoday theme-color' bind:tap='onBackToToday'>
+        <view class="bg theme-color"></view>
+        <text>回到今天</text>
+      </view>
+    </view>
+
+    <!-- calendar-week -->
+    <view class="calendar-header">
+      <view class="header-title" wx:if="{{format==0}}">日</view>
+      <view class="header-title">一</view>
+      <view class="header-title">二</view>
+      <view class="header-title">三</view>
+      <view class="header-title">四</view>
+      <view class="header-title">五</view>
+      <view class="header-title">六</view>
+      <view class="header-title" wx:if="{{format==1}}">日</view>
+    </view>
+
+    <!-- calendar-body -->
+    <view class="calendar-body">
+      <view wx:for="{{calendar.weeks}}" wx:for-item="week" wx:for-index="weekIdx" wx:key="weekIdx" class="calender-body-date-week">
+        <view wx:for="{{week}}" wx:for-item="day" wx:key="ymd" bind:tap='onSelectDate' class="date {{day.m!=calendar.m ? 'placeholder':''}} {{(day.ymd<begin||day.ymd>deadline) ? 'unavailable':''}} {{day.ymd==selectedYmd ? 'active':''}}" data-week-idx="{{weekIdx}}" data-index="{{index}}" data-ymd="{{day.ymd}}" data-is-available="{{day.ymd>=begin && day.ymd<=deadline && day.m==calendar.m}}">
+          <view class="bg theme-color"></view>
+          <text>{{day.date}}</text>
+          <!-- 只标记当月且效日期 -->
+          <view wx:if="{{!!markBlueObj[day.ymd]}}" class="data-blue-circle"></view>
+          <view wx:if="{{!!markOrangeObj[day.ymd]}}" class="data-orange-circle"></view>
+          <!-- <view wx:if="{{day.m==calendar.m && day.ymd>begin && day.ymd<deadline}}" class="data-blue-circle"></view> -->
+          <!-- <view wx:if="{{day.m==calendar.m && day.ymd>begin && day.ymd==deadline}}" class="data-orange-circle"></view> -->
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

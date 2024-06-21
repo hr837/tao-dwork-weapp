@@ -1,0 +1,43 @@
+<!--pages/user-service-agree/user-service-agree.wxml-->
+<view style="padding: 32rpx 20rpx; font-size: 28rpx;">
+  <!-- <view style="display: flex; align-items: center; justify-content: center; box-sizing: border-box; line-height: 64rpx; margin-bottom: 32rpx;">用户服务协议</view> -->
+
+  <view style="line-height: 50rpx; text-indent: 2em;">本协议是您（以下简称“用户”）与【西安保安服务平台】（以下简称“小程序”）之间就小程序使用和服务等相关事宜订立的协议。在您使用小程序前，请务必仔细阅读并同意本协议所有条款。如果您不同意本协议任意内容，请停止使用小程序。</view>
+
+  <view style="line-height: 64rpx;">第一条 服务内容</view>
+
+  <view style="line-height: 50rpx; text-indent: 2em;">1.1 用户在使用本小程序时需先进行注册，并按照注册页面提供的真实、准确、完整的信息完成注册。</view>
+
+  <view style="line-height: 50rpx; text-indent: 2em;">1.2 用户在注册过程中需选择一个账号和密码。用户应妥善保管其账户信息，不得将账户信息透露给他人使用。用户对使用其账户进行的所有操作承担全部责任。</view>
+
+  <view style="line-height: 64rpx;">第二条 用户权利和义务</view>
+
+  <view style="line-height: 50rpx; text-indent: 2em;">2.1 用户应自行承担因使用小程序而产生的所有费用，包括但不限于上网费用、设备费用等。</view>
+
+  <view style="line-height: 50rpx; text-indent: 2em;">2.2 用户应保管好自己的账号和密码，任何情况下不将账号和密码透露给他人。用户如发现账号被非法使用，应立即通知小程序。</view>
+
+  <view style="line-height: 50rpx; text-indent: 2em;">2.3 用户不得利用小程序从事违法活动，不得发布违法、违规内容，不得扰乱小程序正常秩序。</view>
+
+  <view style="line-height: 64rpx;">第三条 知识产权</view>
+
+  <view style="line-height: 50rpx; text-indent: 2em;">3.1 小程序享有小程序中所有内容的知识产权，包括但不限于文字、图片、音频、视频等。</view>
+
+  <view style="line-height: 50rpx; text-indent: 2em;">3.2 用户在使用小程序服务时产生的内容，用户对其拥有知识产权，但授予小程序免费、永久的、不可撤销的许可使用权。</view>
+
+  <view style="line-height: 64rpx;">第四条 免责声明</view>
+
+  <view style="line-height: 50rpx; text-indent: 2em;">4.1 在法律允许的范围内，小程序不对用户使用小程序服务所产生的任何直接或间接损失承担责任。</view>
+
+  <view style="line-height: 50rpx; text-indent: 2em;">4.2 小程序不对因不可抗力、黑客攻击、通讯线路故障等影响服务的事件而导致的损失承担责任。</view>
+
+  <view style="line-height: 64rpx;">第五条 协议的修改和终止</view>
+
+  <view style="line-height: 50rpx; text-indent: 2em;">5.1 小程序有权根据实际情况修改本协议内容，修改后的协议一旦发布即生效，小程序将不另行通知用户。</view>
+
+  <view style="line-height: 50rpx; text-indent: 2em;">5.2 用户有权随时终止使用小程序服务。</view>
+
+  <view style="line-height: 64rpx;">本用户服务协议自【生效日期】起生效。</view>
+
+  <view style="line-height: 50rpx; margin-top: 20rpx;">【西安保安服务平台】</view>
+  <view style="line-height: 50rpx; margin-top: 20rpx; margin-bottom: 20rpx;">日期：【2024年06月06日】</view>
+</view>

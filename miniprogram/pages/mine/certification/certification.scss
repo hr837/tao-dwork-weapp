@@ -1,0 +1,96 @@
+/* pages/mine/certification/certification.wxss */
+@import '../../../assets/scss/global.scss';
+
+.avatar-wrapper {
+  padding: 0;
+  width: max-content;
+  height: max-content;
+  border: unset;
+  background-color: transparent;
+
+  border-radius: unset;
+  box-sizing: border-box;
+  color: transparent;
+  cursor: pointer;
+  display: block;
+  font-size: 18px;
+  line-height: unset;
+  margin-left: unset;
+  margin-right: unset;
+  overflow: hidden;
+  padding-left: unset;
+  padding-right: unset;
+  position: unset;
+  text-align: unset;
+  text-decoration: unset;
+
+  &::after {
+    height: max-content;
+    border: unset;
+    border-radius: unset;
+    box-sizing: border-box;
+    left: 0;
+    position: absolute;
+    top: 0;
+    -webkit-transform: scale(.5);
+    transform: scale(.5);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    width: max-content;
+    border-top-width: unset;
+    border-right-width: unset;
+    border-bottom-width: unset;
+    border-left-width: unset;
+    border-top-style: unset;
+    border-right-style: unset;
+    border-bottom-style: unset;
+    border-left-style: unset;
+    border-top-color: unset;
+    border-right-color: unset;
+    border-bottom-color: unset;
+    border-left-color: unset;
+    border-image-source: unset;
+    border-image-slice: unset;
+    border-image-width: unset;
+    border-image-outset: unset;
+    border-image-repeat: unset;
+    border-top-left-radius: unset;
+    border-top-right-radius: unset;
+    border-bottom-right-radius: unset;
+    border-bottom-left-radius: unset;
+  }
+}
+
+.form-control {
+  display: flex;
+  align-items: center;
+}
+
+.operator {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  background-color: #FFFFFF;
+  padding: 24rpx 16rpx 92rpx 16rpx;
+  margin-top: 20rpx;
+}
+
+.certificate {
+  margin-top: 20rpx;
+  // padding: 20rpx;
+  // border-bottom: 1rpx solid rgba(166, 168, 170, 0.4);
+}
+
+.form-control-image-loader {
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+}
+
+.cell-container-content {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}

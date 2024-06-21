@@ -1,0 +1,46 @@
+/* 上传图片 */
+
+.img-wrap {
+  font-size: 30rpx;
+  color: #33373E;
+  background-color: #fff;
+  border-radius: 10rpx;
+  // padding: 20rpx;
+}
+
+.img-wrap .imglist {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.img-wrap .imglist .item {
+  width: 96rpx;
+  height: 96rpx;
+  margin-right: 20rpx;
+  border-radius: 10rpx;
+  position: relative;
+}
+
+.img-wrap .imglist .last-item {
+  width: 96rpx;
+  height: 96rpx;
+  text-align: center;
+  line-height: 146rpx;
+  border: 2rpx dashed var(--primary-background);
+  box-sizing: border-box;
+}
+
+.img-wrap .imglist .item image {
+  width: 100%;
+  height: 100%;
+}
+
+.img-wrap .imglist .item .delete {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: -20rpx;
+  right: -20rpx;
+}

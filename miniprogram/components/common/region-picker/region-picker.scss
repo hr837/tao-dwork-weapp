@@ -1,0 +1,151 @@
+/* 字体图标 */
+@font-face {
+  font-family: "iconfont";
+  src: url('iconfont.eot?t=1578877655548');
+  /* IE9 */
+  src: url('iconfont.eot?t=1578877655548#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */
+    url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAKsAAsAAAAABlAAAAJgAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCcApccgE2AiQDCAsGAAQgBYRtBy8blwUR1Ythsr8Ud0yUPEg1dJgjaE3meLRR/rjHoLLNmiCcKzuYkfV6IYhqTPf+L0mBSVYCgSdmYytkp+MrDEogoWO2627BdPwTDfeFCSbSBbrAtjXngI2KUCVZO/Koxr88t+nlM2qAAJmfPYCw8K8fmMfrNcBd5SU9WUkmBa2T6lVKkyAFAZAKQdc+ce/0T6BA5gPKce2N3acuwDigAPfCaAuXUMYNYxe4hPMQwIs4OaSsoq4NRbGmCSAjg/2daC6KoqzggeCsWavIBWM8zKER5+H35XcJBofFamnqK+9hfbBL2HDj7BPEeghoswOwQA5QkLbabAOCMJ7FK9tJwr4aBT68b0f2akHYX2fV+wAQA6X3JHPlt1pvANDYGwWtbdS7wPj6LsvcXTTolufazA0m+e0bcoQvmCfju2Fs5hNRuIKVt7ci/DNbZB4DBMZO6428TQF4rkOz0s8Pj535BH6KrGeH6grLZlSV1foNUaOmGsALL8CNg0HexxpD76AoeBB6H34XsSksHqSQyubAgTe5cOJBIbzIVrnZm2BTCKKeQJZdACHAPQx+PMAS4IlU9g0OwvzDSUDAiw4J3tObtDC3WDI+BF/w/INT1GrHIYuocYfmHR+cVYT8E3JyCSizoljYYos8x4L0MZWIBs3UwAZchjESdEwelWRWpKvzXNfdKFPU9Ba9JeND8AXPPzhFrfZ7y6L0+R2ad3xwC6cmeUJObnAos6IHudW2vTj3ck36mEpEg2ZqYANGYYwEXf0oj0oyOyLd1bndTffVZuvrmw/YB3j1LJPp20OGvbGKlLDXAwAA') format('woff2'),
+    url('iconfont.woff?t=1578877655548') format('woff'),
+    url('iconfont.ttf?t=1578877655548') format('truetype'),
+    /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+    url('iconfont.svg?t=1578877655548#iconfont') format('svg');
+  /* iOS 4.1- */
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-close:before {
+  content: "\e60a";
+}
+
+
+
+/* components/region-picker/region-picker.wxss */
+.region_picker,
+.region_picker view {
+  box-sizing: border-box;
+  color: #434343;
+}
+
+
+.region_picker {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  display: none;
+}
+
+.region_picker.show {
+  display: block;
+}
+
+.region_picker .region_container {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 60%;
+  background-color: white;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+
+.region_picker_title {
+  font-size: 18px;
+  color: #000000;
+  position: relative;
+  text-align: center;
+  padding: 5px 0;
+}
+
+.region_picker_title i {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background-color: #F0f0f0;
+  border-radius: 50%;
+  color: #cccccc;
+  line-height: 24px;
+}
+
+.region_picker_cancel,
+.region_picker_confirm {
+  position: absolute;
+  font-size: 16px;
+  padding: 5px 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.region_picker_cancel {
+  color: #e64340;
+}
+
+.region_picker_confirm {
+  color: #07c160;
+  right: 0;
+}
+
+
+.region_picker_tab_item {
+  position: relative;
+  display: inline-block;
+  padding: 10px;
+  font-size: 16px;
+  overflow: hidden;
+  /*超出部分隐藏*/
+  text-overflow: ellipsis;
+  /* 超出部分显示省略号 */
+  white-space: nowrap;
+  /*规定段落中的文本不进行换行 */
+}
+
+.region_picker_tab_item:last-child {
+  color: #000000;
+}
+
+.region_picker_tab_item:last-child::after {
+  content: '';
+  position: absolute;
+  width: 80%;
+  height: 4px;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  background-color: #007EFF;
+}
+
+.region_picker_content {
+  height: 0;
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 5px 0;
+}
+
+.region_picker_content_item {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.region_picker_content_item:active {
+  background-color: rgba(0, 0, 0, 0.1);
+}

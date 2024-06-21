@@ -1,0 +1,88 @@
+<page-container wx:if="{{!isRecycle}}" show="{{show}}" custom-style="background: transparent; height: 80%;" close-on-slideDown="{{true}}" bind:beforeenter="beforeenter" bind:enter="enter" bind:afterenter="afterenter" bind:beforeleave="beforeleave" bind:leave="leave" bind:afterleave="afterleave" bind:clickoverlay="clickoverlay">
+  <view style="height: 100%; display: flex; flex-direction: column; box-sizing: border-box; background: #fff; border-radius: 10rpx 10rpx 0rpx 0rpx; overflow: hidden;">
+    <!-- 标题 -->
+    <view style="display: flex; box-sizing: border-box; align-items: center; padding: 20rpx;">
+      <view style="flex: 1; font-style: 32rpx; color: #262626 ; font-weight: bold;">请选择所在地区</view>
+      <view bindtap="close">
+        确认
+      </view>
+      <!-- <image style="max-height: 36rpx; max-width: 36rpx;" mode="aspectFit" src='/assets/images/icons/delete.png' bindtap="close" /> -->
+    </view>
+
+    <!-- 内容区 -->
+    <veiw style="flex: 1; display: flex; flex-direction: column; box-sizing: border-box; padding: 20rpx 0rpx 0rpx 0rpx; overflow: hidden;">
+      <!-- 数据内容，动态可切换 -->
+      <view wx:if="{{!searchShow}}" style="flex: 1; display: flex; flex-direction: column; box-sizing: border-box; overflow: hidden; position: relative;">
+        <!-- 已选择数据 -->
+        <view style="height: fit-content; display: flex; align-items: center; box-sizing: border-box; padding: 0rpx 20rpx;">
+          <veiw style="flex: 1; display: flex; box-sizing: border-box; align-items: center; font-size: 30rpx; color:var(--primary-color); padding-bottom: 10rpx; border-bottom: 2rpx solid #eee;">
+            <!-- 循环加载选择的城市 -->
+            <view wx:if="{{selected && selected[0]}}" style="display: flex; box-sizing: border-box; width: fit-content; color: #262626;">
+              <view wx:for="{{selected}}" wx:key="index" data-level="{{index}}" data-id="{{item.id}}" data-name="{{item.name}}" style="margin-right: 20rpx;" bindtap="onIndexChange">
+                {{item.name}}
+              </view>
+            </view>
+
+            <!-- 选择操作 -->
+            <view wx:if="{{currentLevel <=2 && currentLevel <= level && (!selected || selected.length==0 || selected.length == currentLevel || (selected.length > currentLevel && !selected[currentLevel]))}}">
+              <text>请选择</text>
+            </view>
+          </veiw>
+        </view>
+
+        <!-- 热门城市 -->
+        <view style="height: fit-content; display: flex; flex-direction: column; box-sizing: border-box; color: #1D1D21; padding: 20rpx 20rpx 0rpx 20rpx; font-size: 28rpx;">
+          <view style="margin-bottom: 10rpx; font-size: 28rpx; color: #7F7F7F;">热门城市</view>
+          <veiw style="height: fit-content; display: flex; align-items: center; box-sizing: border-box; margin-bottom: 10rpx;">
+            <view data-id="110000" data-name="北京" bindtap="onHotCity" class="hot-city {{ selected.length > 0 && selected[0].id == '110000'? 'active':'' }}">北京</view>
+            <view data-id="310000" data-name="上海" bindtap="onHotCity" class="hot-city {{ selected.length > 0 && selected[0].id == '310000'? 'active':'' }}">上海</view>
+            <view data-parent="440000" data-id="440100" data-name="广州" bindtap="onHotCity" class="hot-city {{ selected.length > 1 && selected[1].id == '440100'? 'active':'' }}">广州</view>
+            <view data-parent="330000" data-id="330100" data-name="杭州" bindtap="onHotCity" class="hot-city {{ selected.length > 1 && selected[1].id == '330100'? 'active':'' }}">杭州</view>
+          </veiw>
+          <view style="margin-bottom: 10rpx;height: fit-content; display: flex; align-items: center; box-sizing: border-box; ">
+            <view data-parent="320000" data-id="320100" data-name="南京" bindtap="onHotCity" class="hot-city {{ selected.length > 1 && selected[1].id == '320100'? 'active':'' }}">南京</view>
+            <view data-parent="430000" data-id="430100" data-name="长沙" bindtap="onHotCity" class="hot-city {{ selected.length > 1 && selected[1].id == '430100'? 'active':'' }}">长沙</view>
+            <view data-parent="420000" data-id="420100" data-name="武汉" bindtap="onHotCity" class="hot-city {{ selected.length > 1 && selected[1].id == '420100'? 'active':'' }}">武汉</view>
+            <view data-id="120000" data-name="天津" bindtap="onHotCity" class="hot-city {{ selected.length > 0 && selected[0].id == '120000'? 'active':'' }}">天津</view>
+          </view>
+          <view style="height: fit-content; display: flex; align-items: center; box-sizing: border-box; ">
+            <view data-id="500000" data-name="重庆" bindtap="onHotCity" class="hot-city {{ selected.length > 0 && selected[0].id == '500000'? 'active':'' }}">重庆</view>
+            <view data-parent="510000" data-id="510100" data-name="成都" bindtap="onHotCity" class="hot-city {{ selected.length > 1 && selected[1].id == '510100'? 'active':'' }}">成都</view>
+            <view data-parent="610000" data-id="610100" data-name="西安" bindtap="onHotCity" class="hot-city {{ selected.length > 1 && selected[1].id == '610100'? 'active':'' }}">西安</view>
+            <view data-parent="410000" data-id="410100" data-name="郑州" bindtap="onHotCity" class="hot-city {{ selected.length > 1 && selected[1].id == '410100'? 'active':'' }}">郑州</view>
+          </view>
+        </view>
+
+        <!-- 列表数据 -->
+        <veiw style="flex: 1; margin-top: 20rpx; overflow: hidden;">
+          <scroll-view style="height: 100%; width: 100%; color: #666666; padding: 0rpx 20rpx 0rpx 20rpx;" scroll-y="{{true}}" scroll-into-view="{{scrollTopId}}" enable-flex="{{true}}">
+            <!-- 省会容器 -->
+            <view>
+              <view wx:if="{{currentLevel == 0}}" class="city-selection" wx:for="{{provinces}}" wx:key="index">
+                <view class="item_city {{ selected.length > 0 && selected[0].id == item.id? 'active':'' }}" data-id="{{item.id}}" data-name="{{item.name}}" data-level="{{currentLevel}}" style="width: 100%;" bindtap="onSelectedChange">
+                  {{item.name}}
+                </view>
+              </view>
+            </view>
+            <!-- 城市容器 -->
+            <view>
+              <view wx:if="{{currentLevel == 1}}" class="city-selection" wx:for="{{cities}}" wx:key="index">
+                <view class="item_city {{ selected.length > 1 && selected[1].id == item.id? 'active':'' }}" data-id="{{item.id}}" data-name="{{item.name}}" data-level="{{currentLevel}}" style="width: 100%;" bindtap="onSelectedChange">
+                  {{item.name}}
+                </view>
+              </view>
+            </view>
+            <!-- 县区容器 -->
+            <view>
+              <view wx:if="{{currentLevel == 2}}" class="city-selection" wx:for="{{districts}}" wx:key="index">
+                <view class="item_city {{ selected.length > 2 && selected[2].id == item.id? 'active':'' }}" data-id="{{item.id}}" data-name="{{item.fullname}}" data-level="{{currentLevel}}" style="width: 100%;" bindtap="onSelectedChange">
+                  {{item.fullname}}
+                </view>
+              </view>
+            </view>
+          </scroll-view>
+        </veiw>
+      </view>
+    </veiw>
+  </view>
+</page-container>

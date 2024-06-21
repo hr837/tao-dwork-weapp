@@ -1,0 +1,17 @@
+{
+  "navigationBarTitleText": "信息认证",
+  "usingComponents": {
+    "t-cell": "tdesign-miniprogram/cell/cell",
+    "t-input": "tdesign-miniprogram/input/input",
+    "t-checkbox": "tdesign-miniprogram/checkbox/checkbox",
+    "t-checkbox-group": "tdesign-miniprogram/checkbox-group/checkbox-group",
+    "t-date-time-picker": "tdesign-miniprogram/date-time-picker/date-time-picker",
+    "t-radio": "tdesign-miniprogram/radio/radio",
+    "t-radio-group": "tdesign-miniprogram/radio-group/radio-group",
+    "t-cascader": "tdesign-miniprogram/cascader/cascader",
+    "t-button": "tdesign-miniprogram/button/button",
+    "upload-image": "/components/basic/upload-image/upload-image",
+    "saient-sms-code": "/components/basic/sms-code/sms-code",
+    "saient-address-picker": "/components/basic/address-picker/address-picker"
+  }
+}

@@ -1,0 +1,25 @@
+<view class="container">
+  <!-- 省市区 -->
+  <!-- <view class="form-control" style="width: 100%; margin-bottom: unset;">
+    <view class="form-label-{{labelWidth}}">{{areaText}}<text>*</text></view>
+    <view class="form-item" bindtap="onSelectArea">
+      <input type="text" disabled value="{{areaStr}}" placeholder="省、市、区" placeholder-style="color:#999; font-size: 30rpx;" />
+      <image class="img-ext" src="/assets/images/icons/43.png"></image>
+    </view>
+  </view> -->
+  <!-- 详细地址 -->
+  <view wx:if="{{showLocation}}" class="form-control" style="width: 100%; margin-bottom: unset;">
+    <view class="title-container">
+      <text class="red-star" slot="prefix-icon">*</text>
+      <view class="cell-container-content">{{locationText}}</view>
+    </view>
+
+    <view class="form-item">
+      <input bindinput='onInputValueChange' bindblur="onAddressBlur" type="text" value="{{addressStr}}" data-name="addressStr" placeholder="请输入地点" placeholder-style="color:#999; font-size: 30rpx;" />
+      <image src="/assets/images/icon/94.png" style="width: 48rpx; height: 48rpx; position: unset; pointer-events: all;" bindtap="onSelectAddress"></image>
+    </view>
+  </view>
+</view>
+
+<!-- 选择城市 -->
+<select-city show="{{show}}" is-location="{{isLocation}}" value="{{areas}}" bindchange="onAreasChange" bindclose="onAreasClose"></select-city>

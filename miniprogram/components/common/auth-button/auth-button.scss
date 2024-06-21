@@ -1,0 +1,25 @@
+/* components/auth-button/auth-button.wxss */
+
+.auth-button {
+  background: unset;
+  color: unset;
+  border-radius: unset;
+  border: unset;
+  font-size: unset;
+  font-weight: unset;
+  line-height: unset;
+  padding: unset;
+  padding-left: unset;
+  padding-right: unset;
+  margin: unset;
+  margin-left: unset;
+  margin-right: unset;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-button::after{
+  border: unset;
+}

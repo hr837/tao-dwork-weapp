@@ -1,0 +1,177 @@
+<!--pages/mine/certification/certification.wxml-->
+<!-- 执业医师认证 -->
+<wxs src="../../../wxs/utils.wxs" module="tools" />
+
+<!-- 个人实名认证 -->
+<view>
+  <!-- 微信用户信息 -->
+  <view style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 20rpx; padding-bottom: 20rpx;">
+    <button class="avatar-wrapper" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+      <image mode="aspectFill" src="{{avatarUrl? tools.filePreview(avatarUrl) : '/assets/images/none.jpg'}}" style="height: 120rpx; width: 120rpx; border-radius: 50%;"></image>
+    </button>
+    <view style="font-size: 34rpx; color: rgba(23,26,29,0.4);">点击上传头像</view>
+  </view>
+
+  <!-- <view style="border-radius: 24rpx 24rpx 0 0;">
+    <view style="padding: 30rpx;border-bottom: 1rpx solid #eee; ">
+      <view style="font-size: 48rpx;font-weight: bold; font-weight: 500; color: #171A1D; padding-bottom: 10rpx;">身份验证</view>
+      <view style="font-size: 34rpx; color: rgba(23,26,29,0.4); font-weight: 400; font-family: Source Han Sans CN-Regular, Source Han Sans CN;">应监管要求，请先进行身份验证</view>
+    </view>
+    <view style="padding: 32rpx;">
+      <view style="border: 1rpx dashed rgba(126,134,142,0.16); display: flex;justify-content: space-between;height: 120rpx;background: #F2F2F6; align-items: center;padding: 0 32rpx;border-radius: 10rpx">
+        <view style="display: flex; align-items: center;">
+          <image src="/assets/images/icons/id_card.png" style="width: 48rpx;height: 48rpx;"></image>
+          <view style="margin-left: 12rpx; font-size: 34rpx; color: #171A1D;">身份证认证</view>
+        </view>
+        <view style="border: 1rpx solid #0089FF;color: #0089FF;padding: 6rpx 24rpx;border-radius: 8rpx;" bindtap="onIdAttestation">去上传</view>
+      </view>
+      <view style="border: 1rpx dashed rgba(126,134,142,0.16); display: flex;justify-content: space-between;height: 120rpx;background: #F2F2F6; align-items: center;padding: 0 32rpx;border-radius: 10rpx;margin-top: 20rpx;">
+        <view style="display: flex; align-items: center;">
+          <image src="/assets/images/icons/ic24-border-horizontal.png" style="width: 48rpx;height: 48rpx;"></image>
+          <view style="margin-left: 12rpx; font-size: 34rpx; color: #171A1D;">人脸识别认证</view>
+        </view>
+        <view style="border: 1rpx solid #0089FF;color: #0089FF;padding: 6rpx 24rpx;border-radius: 8rpx;" bindtap="onFaceAttestation">去上传</view>
+      </view>
+    </view>
+  </view> -->
+
+  <!-- 姓名 -->
+  <view class="form-control">
+    <view class="form-item">
+      <t-input type="text" required model:value="{{name}}" data-name="name" label="姓名" placeholder="请输入姓名" maxlength="{{20}}" borderless="{{true}}" bindinput='onInputValueChange' placeholder-style=" color:rgba(23,26,29,0.4); font-size: 34rpx;">
+        <text class="form-item-text" slot="prefix-icon">*</text>
+      </t-input>
+    </view>
+  </view>
+
+  <!-- 性别 -->
+  <view class="form-control">
+    <view class="form-item">
+      <view slot="prefix-icon" class="form-label-slot"><text>*</text></view>
+      <t-cell title="性别" model:value="{{gender}}" bordered="{{false}}" t-class="panel-item">
+        <t-radio-group default-value="1" value="{{gender}}" borderless slot="note" bind:change="onRadioGroupChange" data-name="gender">
+          <t-radio block="{{false}}" label="男" value="{{1}}" />
+          <t-radio block="{{false}}" label="女" value="{{2}}" style="margin-left: 20rpx;" />
+        </t-radio-group>
+      </t-cell>
+    </view>
+  </view>
+
+  <!-- 身份证号 -->
+  <view class="form-control">
+    <view class="form-item">
+      <t-input type="text" required model:value="{{certNo}}" data-name="certNo" label="身份证号" placeholder="请输入身份证号" maxlength="{{18}}" borderless="{{true}}" bindinput='onInputValueChange' placeholder-style="color:rgba(23,26,29,0.4); font-size: 34rpx;">
+        <text class="form-item-text" slot="prefix-icon">*</text>
+      </t-input>
+    </view>
+  </view>
+
+  <!-- 账号昵称 -->
+  <view class="form-control">
+    <view class="form-item">
+      <t-input type="nickname" model:value="{{nickName}}" data-name="nickName" label="账号昵称" placeholder="输入账号昵称" maxlength="{{20}}" borderless="{{true}}" bindinput='onInputValueChange' bindchange="onInputValueChange" bindnicknamereview="onNickNameReview" placeholder-style=" color:rgba(23,26,29,0.4); font-size: 34rpx;">
+      </t-input>
+    </view>
+  </view>
+
+  <!-- 分管派出所 -->
+  <view class="form-control">
+    <view class="form-item">
+      <view slot="prefix-icon" class="form-label-slot"><text>*</text></view>
+      <t-cell class="cell-container" title="分管派出所" model:value="{{areaId}}" note="{{tools.getCascaderLabel(areaIdSelected)}}" bordered="{{false}}" data-name="areaId" bindtap="onShowPicker" arrow />
+      <t-cascader visible="{{areaIdVisible}}" model:value="{{areaId}}" options="{{areaOptions}}" data-name="areaId" title="选择分管派出所" bindchange="onPickerChange" bindpick="onPickeColumnChange" bindcancel="onHidePicker" />
+    </view>
+  </view>
+
+  <!-- 省市区、详细地址 -->
+  <!-- <saient-address-picker value="{{address}}" location="{{location}}" area-text="省市区" data-source="1" bindchange="onAddressChange" bindclose="onAddressClose" bindlocation="onLocationBefore"></saient-address-picker> -->
+  <!-- 居住地址 -->
+  <!-- <view class="form-control">
+    <view class="form-item">
+      <t-input type="text" model:value="{{address}}" data-name="address" label="居住地址" placeholder="请输入详细地址到门牌号" maxlength="{{60}}" borderless="{{true}}" bindinput='onInputValueChange' placeholder-style="color:rgba(23,26,29,0.4); font-size: 34rpx;">
+      </t-input>
+    </view>
+  </view> -->
+
+  <!-- 所属机构 -->
+  <!-- <view class="form-control">
+    <view class="form-item">
+      <view slot="prefix-icon" class="form-label-slot"><text>*</text></view>
+      <t-cell class="cell-container" title="所属机构" model:value="{{orgCode}}" note="{{orgCodeText}}" bordered="{{false}}" data-name="orgCode" bindtap="onShowPicker" arrow />
+      <t-cascader visible="{{orgCodeVisible}}" value="{{orgCode}}" options="{{orgCodeOptions}}" data-name="orgCode" title="选择所属机构" bindchange="onPickerChange" bindpick="onPickeColumnChange" bindcancel="onHidePicker" />
+    </view>
+  </view> -->
+
+  <!-- 医师资格证号 -->
+  <view class="form-control">
+    <view class="form-item">
+      <view slot="prefix-icon" class="form-label-slot"><text>*</text></view>
+      <t-input type="text" model:value="{{certNum}}" data-name="certNum" label="医师资格证号" placeholder="输入医师资格证号" borderless="{{true}}" bindinput='onInputValueChange' placeholder-style="color:rgba(23,26,29,0.4); font-size: 34rpx;">
+      </t-input>
+    </view>
+  </view>
+
+  <!-- 证书签发日期 -->
+  <view class="form-control">
+    <view class="form-item">
+      <t-cell title="证书签发日期" model:value="{{issued}}" data-name="issued" hover note="{{tools.formatDate(issued)}}" bordered="{{false}}" arrow bindtap="onShowPicker" t-class="panel-item" />
+      <t-date-time-picker title="证书签发日期" visible="{{issuedVisible}}" data-name="issued" mode="date" model:value="{{issued}}" defaultValue="{{issued}}" format="YYYY-MM-DD" bindchange="onPickerChange" bindpick="onPickeColumnChange" bindcancel="onHidePicker" />
+    </view>
+  </view>
+
+  <!-- 执业范围 -->
+  <view class="form-control">
+    <view class="form-item">
+      <t-input type="text" model:value="{{scope}}" data-name="scope" label="执业范围" placeholder="输入执业范围" maxlength="{{13}}" borderless="{{true}}" bindinput='onInputValueChange' placeholder-style="color:rgba(23,26,29,0.4); font-size: 34rpx;">
+      </t-input>
+    </view>
+  </view>
+
+  <!-- 证件正反面 -->
+  <view style="margin-top: 20rpx;">
+    <view class="flex-row" style="margin-left: 30rpx; height: 88rpx;">
+      <text class="form-item-text" slot="prefix-icon">*</text>
+      <view style="font-size: 30rpx; font-weight: 500;margin-left: 10rpx;">身份证正反面</view>
+    </view>
+    <view style="margin-top: 20rpx;">
+      <view style="padding-bottom: 30rpx; background-size: contain;">
+        <upload-image placeholder="添加身份证正面" value="{{certFront}}" bindchange="onImageChange" data-name="certFront" bus-type="practitioner" ocr-type="{{1}}"></upload-image>
+      </view>
+      <view style=" background-size: contain;">
+        <upload-image placeholder="添加身份证背面" value="{{certBack}}" bindchange="onImageChange" data-name="certBack" bus-type="practitioner" ocr-type="{{2}}"></upload-image>
+      </view>
+    </view>
+  </view>
+
+  <view style="background-color: #fff;">
+    <view>
+      <!-- 从业证书 -->
+      <view class="certificate">
+        <view class="form-control-image-loader">
+          <view class="flex-row" style="height: 88rpx; align-items: center; margin-left: 30rpx;">
+            <text class="form-item-text" slot="prefix-icon">*</text>
+            <view style="margin-left: 6rpx;">从业证书</view>
+          </view>
+          <upload-image style="margin-top: 20rpx;" value="{{certImg}}" data-name="certImg" placeholder="添加从业证书" bindchange="onImageChange"></upload-image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 短信验证码 -->
+  <saient-sms-code required="{{true}}" defaultPhone="{{phone}}" bindphonechange="onPhoneChange" bindsmscodechange="onSmsCodeChange"></saient-sms-code>
+
+  <!-- 用户服务协议、隐私政策 -->
+  <view style="display: flex; box-sizing: border-box; align-items: center; justify-content: center;">
+    <t-checkbox borderless style="padding: unset;" bind:change="onAgreePrivacyChange" />
+    <view>同意</view>
+    <view style="color: var(--primary-color);" bind:tap="onUserServiceAgree">《用户服务协议》</view>
+    <view>及</view>
+    <view style="color: var(--primary-color);" bind:tap="onPrivacyStatement">《隐私政策》</view>
+  </view>
+
+  <!-- 保存 -->
+  <view class="operator">
+    <t-button type="submit" theme="primary" class="confirm-button" bind:tap="onSubmit">保存</t-button>
+  </view>
+</view>

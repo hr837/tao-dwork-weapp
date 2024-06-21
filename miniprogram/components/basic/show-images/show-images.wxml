@@ -1,0 +1,12 @@
+<!--components/basic/show-images/show-images.wxml-->
+<view class="img-wrap" bindtap="bindUpload">
+  <view class="imglist">
+    <view class="item" wx:for="{{urls}}" wx:key="item">
+      <image src="{{item}}" alt="" style="width: 86px; height: 86px; border-radius: 20rpx; margin-right: 10rpx; margin-bottom: 10rpx;" data-url="{{item}}" catchtap="onPreviewImage" mode="aspectFill"></image>
+      <view class='delete' bindtap='deleteImg' data-index="{{index}}">
+      </view>
+    </view>
+    <view wx:if="{{imgs.length >= 3 ? false : true}}">
+    </view>
+  </view>
+</view>

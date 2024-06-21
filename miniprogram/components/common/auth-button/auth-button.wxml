@@ -1,0 +1,4 @@
+<!--components/auth-button/auth-button.wxml-->
+<button class="auth-button" open-type="getUserInfo" bind:tap="onGetUserProfile" style="width: inherit; height: inherit;">
+  <slot></slot>
+</button>

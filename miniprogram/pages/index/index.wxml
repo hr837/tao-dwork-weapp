@@ -1,0 +1,105 @@
+<wxs src="../../wxs/utils.wxs" module="tools" />
+
+
+<!-- 客户信息容器区 -->
+<view style="flex: 1; display: flex; flex-direction: column; box-sizing: border-box;">
+  <view style="width: 100%; height: max-content;">
+    <view style="width: 100%; background-color: var(--td-primary-color); padding: 20rpx; box-sizing: border-box;">
+      <view style="color: #fff; font-size: 36rpx; font-weight: bolder;">工作台</view>
+      <view style="width: 100%; display: flex; flex-direction: row; box-sizing: border-box; align-items: center; padding: 64rpx 0rpx;">
+        <view style="flex: 1; color: #fff; font-size: 28rpx; font-weight: bolder;">安天下信息科技有限公司</view>
+
+        <view style="width: max-content; display: flex; box-sizing: border-box; align-items: center;">
+          <view style="color: #fff; font-size: 28rpx; margin-right: 20rpx; font-weight: bolder;">切换</view>
+          <image src="/assets/images/icons/qie-huan.png" style="width: 36rpx;" mode="widthFix"></image>
+        </view>
+      </view>
+    </view>
+
+    <view style="display: flex; box-sizing: border-box; margin-bottom: 128rpx;">
+      <view style="position: relative; margin: 0 64rpx; box-sizing: border-box; width: 100%;">
+        <view style="flex: 1; display: flex; box-sizing: border-box; align-items: center; background-color: #fff; border-radius: 20rpx; padding: 32rpx 0; position: absolute; top: -48rpx; left: 0; right: 0;">
+          <view style="flex: 1; display: flex; box-sizing: border-box; align-items: center; justify-content: center;">
+            <image src="/assets/images/icons/tian-jia.png" style="width: 24rpx; height: 24rpx; margin-right: 12rpx;"></image>
+            <view>创建企业</view>
+          </view>
+          <view style="flex: 1; display: flex; box-sizing: border-box; align-items: center; justify-content: center;">
+            <image src="/assets/images/icons/sao-ma.png" style="width: 24rpx; height: 24rpx; margin-right: 12rpx;"></image>
+            <view>扫一扫</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view style="flex: 1; background-color: #fff;">
+    <view style="flex: 1;padding: 20rpx;">
+      <view style="font-size: 32rpx; font-weight: bold; margin-bottom: 32rpx;">我的企业</view>
+      <view style="display: flex; box-sizing: border-box; font-size: 28rpx;">
+        <view style="flex: 1; display: flex; flex-direction: column; box-sizing: border-box; align-items: center;" bind:tap="onProject">
+          <image src="/assets/images/icons/xiang-mu.png" style="width: 96rpx; height: 96rpx;"></image>
+          <view style="margin-top: 20rpx;">我的项目</view>
+        </view>
+        <view style="flex: 1; display: flex; flex-direction: column; box-sizing: border-box; align-items: center;">
+          <image src="/assets/images/icons/ge-ren.png" style="width: 96rpx; height: 96rpx;"></image>
+          <view style="margin-top: 20rpx;">我的待办</view>
+        </view>
+        <view style="flex: 1; display: flex; flex-direction: column; box-sizing: border-box; align-items: center;">
+          <image src="/assets/images/icons/ri-cheng.png" style="width: 96rpx; height: 96rpx;"></image>
+          <view style="margin-top: 20rpx;">日程管理</view>
+        </view>
+        <view style="flex: 1; display: flex; flex-direction: column; box-sizing: border-box;">
+          <view></view>
+        </view>
+      </view>
+    </view>
+
+    <view style="background-color: #fff; padding: 20rpx;">
+      <view style="font-size: 32rpx; font-weight: bold; margin-bottom: 32rpx;">我的考勤</view>
+      <view style="display: flex; box-sizing: border-box; font-size: 28rpx;">
+        <view style="flex: 1; display: flex; flex-direction: column; box-sizing: border-box; align-items: center;">
+          <image src="/assets/images/icons/ge-ren.png" style="flex: 1; width: 96rpx; height: 96rpx;"></image>
+          <view style="margin-top: 20rpx;">个人考勤</view>
+        </view>
+        <view style="flex: 1; display: flex; flex-direction: column; box-sizing: border-box; align-items: center;">
+          <image src="/assets/images/icons/ge-ren.png" style="width: 96rpx; height: 96rpx;"></image>
+          <view style="margin-top: 20rpx;">团队考勤</view>
+        </view>
+        <view style="flex: 1; display: flex; flex-direction: column; box-sizing: border-box; align-items: center;">
+          <image src="/assets/images/icons/ge-ren.png" style="width: 96rpx; height: 96rpx;"></image>
+          <view style="margin-top: 20rpx;">请假</view>
+        </view>
+        <view style="flex: 1; display: flex; flex-direction: column; box-sizing: border-box; align-items: center;">
+          <image src="/assets/images/icons/ge-ren.png" style="width: 96rpx; height: 96rpx;"></image>
+          <view style="margin-top: 20rpx;">加班</view>
+        </view>
+      </view>
+      <view style="display: flex; box-sizing: border-box; font-size: 28rpx; margin-top: 32rpx;">
+        <view style="flex: 1; display: flex; flex-direction: column; box-sizing: border-box; align-items: center;">
+          <image src="/assets/images/icons/ge-ren.png" style="width: 96rpx; height: 96rpx;"></image>
+          <view style="margin-top: 20rpx;">出差</view>
+        </view>
+        <view style="flex: 1; display: flex; flex-direction: column; box-sizing: border-box; align-items: center;">
+          <image src="/assets/images/icons/ge-ren.png" style="width: 96rpx; height: 96rpx;"></image>
+          <view style="margin-top: 20rpx;">补卡</view>
+        </view>
+        <view style="flex: 1; display: flex; flex-direction: column; box-sizing: border-box; align-items: center;">
+          <image src="/assets/images/icons/ge-ren.png" style="width: 96rpx; height: 96rpx;"></image>
+          <view style="margin-top: 20rpx;">审批</view>
+        </view>
+        <view style="flex: 1; display: flex; flex-direction: column; box-sizing: border-box; align-items: center;">
+          <image src="/assets/images/icons/ge-ren.png" style="width: 96rpx; height: 96rpx;"></image>
+          <view style="margin-top: 20rpx;">汇报</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view style="position: absolute; bottom: 20rpx; left: 20rpx; right: 20rpx; background-color: #fff8c5; color:#ffd8b5 ; padding: 16rpx;" bind:tap="onCertification">
+  <view style="display: flex; box-sizing: border-box; align-items: center;">
+    <image src="/assets/images/icons/duo-ren.png" style="width: 32rpx; margin-right: 20rpx;" mode="widthFix"></image>
+
+    <view style="flex: 1;">您的个人信息暂未认证，请立即认证</view>
+  </view>
+</view>

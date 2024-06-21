@@ -1,0 +1,11 @@
+<!--components/basic/select-picker/select-picker.wxml-->
+<view class="container">
+  <picker class="picker-container" mode="{{mode}}" value="{{value}}" disabled="{{disabled}}" range="{{range}}" range-key="{{rangeKey}}" custom-item="{{customItem}}" start="{{start}}" end="{{end}}" fields="{{fields}}" bindchange="onChange" bindcancel="onCancel">
+    <view class="form-label-170"><text>*</text>{{headline}}</view>
+    <view wx:if="{{isEmpty}}" class="empty-color empty-text">{{placeholder}}</view>
+    <view wx:else="{{!isEmpty}}" class="empty-text">
+      <slot></slot>
+    </view>
+  </picker>
+  <image class="img-ext" src="/assets/images/icns/元件 - 图标.png"></image>
+</view>

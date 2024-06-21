@@ -1,0 +1,13 @@
+<view class="img-wrap">
+  <view class="imglist">
+    <view class="item" wx:for="{{imgUrls}}" wx:key="index">
+      <image src="{{mediaUrl}}/{{item}}" alt="" style="border-radius: 10rpx;" mode="aspectFill" bindtap="bindPreview" data-index="{{index}}"></image>
+      <view class='delete' bindtap='deleteImg' data-index="{{index}}">
+        <image style="height: 40rpx; width: 40rpx;" mode="aspectFit" src='/assets/images/icon/delete.png' />
+      </view>
+    </view>
+    <view wx:if="{{imgUrls.length < maxCount ? true: false}}" class="item" style="display: flex; box-sizing: border-box; align-items: center; justify-content: center; text-align: center; border: 2rpx solid var(--primary-background); background: var(--primary-background); border-radius: 10rpx; padding: 10rpx; color: #333;" bindtap="bindUpload">
+      {{placeholder}}
+    </view>
+  </view>
+</view>

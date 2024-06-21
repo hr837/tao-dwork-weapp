@@ -1,0 +1,23 @@
+/* components/basic/sms-code/sms-code.wxss */
+.form-item {
+  display: flex;
+  box-sizing: border-box;
+  font-size: 30rpx;
+}
+
+.sms-input{
+  //垂直居中
+  margin: auto 0;
+}
+
+.sms-button {
+  width: 160rpx !important;
+  margin-right: 25rpx;
+  padding: 8rpx 20rpx;
+  font-size: 24rpx;
+  font-weight: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-color);
+}

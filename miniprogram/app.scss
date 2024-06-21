@@ -1,0 +1,54 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+page {
+  --td-primary-color: #0089FF; // 主题色 [#0052d9]
+  --td-success-color: #00a870; // 成功 [#00a870]
+  --td-warning-color: #ed7b2f; // 警告 [#ed7b2f]
+  --td-error-color: #e34d59; // 失败 [#e34d59]
+
+  // td-button
+  --td-button-primary-bg-color: #0089FF; // [#0B57A5]
+  --td-button-font-weight: 400;
+  --td-button-border-radius: 16rpx;
+
+
+
+
+  --primary-background: #F2F2F6;
+  --primary-color: #0089FF;
+  --light-primary-color: #A4D5FF;
+  --primary-padding: 20rpx;
+  --page-padding-bottom: 20rpx;
+
+  background: var(--primary-background);
+  // padding: var(--primary-padding) var(--primary-padding) var(--page-padding-bottom) var(--primary-padding);
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-height: 100%;
+  // width: 100%;
+
+  // font-family: STXihei;
+  // font-size: 30rpx;
+
+  button::after {
+    border: unset;
+  }
+}
+
+// [详情页]预览图的统一设置
+.common-detail-image {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 10px;
+  overflow: hidden;
+}

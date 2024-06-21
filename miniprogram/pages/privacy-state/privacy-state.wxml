@@ -1,0 +1,18 @@
+<!--pages/privacy-state/privacy-state.wxml-->
+<view style="padding: 32rpx 20rpx; font-size: 28rpx;">
+  <!-- <view style="display: flex; align-items: center; justify-content: center; box-sizing: border-box; line-height: 64rpx; margin-bottom: 32rpx;">隐私声明</view> -->
+
+  <view style="line-height: 50rpx; text-indent: 2em;">1. 我们会收集和使用您的微信昵称、手机号、位置、访问相册、身份证、住址等信息，用于确保您能正常使用本小程序提供的功能和服务。</view>
+
+  <view style="line-height: 50rpx; text-indent: 2em;">2. 我们收集上述信息的目的是进行注册、登录、身份验证、提供定位服务、展示照片、显示宠物等，我们不会将这些信息用于其他目的。</view>
+
+  <view style="line-height: 50rpx; text-indent: 2em;">3. 我们碰到以下情形，可能会与第三方分享您的个人信息：为了提供服务所必需的；获得您的明确同意；根据法律法规的要求等。</view>
+
+  <view style="line-height: 50rpx; text-indent: 2em;">4. 我们会采取技术手段和管理措施，保护您的个人信息安全，避免信息泄漏、损坏或丢失。</view>
+
+  <view style="line-height: 50rpx; text-indent: 2em;">5. 您拥有对个人信息的访问、更正、删除和撤回同意等权利，请及时联系我们行使。</view>
+
+  <view style="line-height: 50rpx; text-indent: 2em;">6. 隐私政策的更新：我们保留随时更新隐私政策的权利，在更新时会通知用户最新变化。</view>
+
+  <view style="line-height: 50rpx; text-indent: 2em;">请您务必仔细阅读并自愿同意本隐私声明的所有内容，如有任何疑问或意见，请随时联系我们。</view>
+</view>

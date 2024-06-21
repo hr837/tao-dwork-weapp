@@ -1,0 +1,64 @@
+{
+  "appid": "wxfc79367059471d48",
+  "projectname": "安保",
+  "compileType": "miniprogram",
+  "libVersion": "2.24.7",
+  "miniprogramRoot": "miniprogram/",
+  "srcMiniprogramRoot": "miniprogram/",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "setting": {
+    "coverView": true,
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "enhance": true,
+    "showShadowRootInWxmlPanel": true,
+    "packNpmRelationList": [],
+    "useStaticServer": true,
+    "ignoreUploadUnusedFiles": true,
+    "compileHotReLoad": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useCompilerPlugins": [
+      "typescript",
+      "sass"
+    ],
+    "lazyloadPlaceholderEnable": false,
+    "preloadBackgroundData": false,
+    "autoAudits": false,
+    "uglifyFileName": false,
+    "uploadWithSourceMap": true,
+    "packNpmManually": false,
+    "minifyWXSS": true,
+    "showES6CompileOption": false,
+    "checkInvalidKey": true,
+    "disableUseStrict": false,
+    "minifyWXML": true,
+    "condition": false
+  },
+  "condition": {},
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "dependencies": {
+    "dayjs": "^1.11.7",
+    "tdesign-miniprogram": "^1.0.4",
+    "wx-qr": "^0.1.2"
+  },
+  "devDependencies": {
+    "miniprogram-api-typings": "^3.9.0"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.banggongshe.com/sxzbxx/specialtrip-wechat.git"
+  },
+  "description": ""
+}

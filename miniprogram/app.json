@@ -1,0 +1,74 @@
+{
+  "lazyCodeLoading": "requiredComponents",
+  "pages": [
+    "pages/index/index",
+    "pages/punch/punch",
+    "pages/news/news",
+    "pages/mine/mine",
+    "pages/user-service-agree/user-service-agree",
+    "pages/privacy-state/privacy-state",
+    "pages/project/project-list/project-list",
+    "pages/mine/certification/certification"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "保安服务平台",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#6e7781",
+    "selectedColor": "#0550ae",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/punch/punch",
+        "text": "打卡",
+        "iconPath": "assets/images/icons/da-ka-default.png",
+        "selectedIconPath": "assets/images/icons/da-ka.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "工作台",
+        "iconPath": "assets/images/icons/gong-zuo-tai-default.png",
+        "selectedIconPath": "assets/images/icons/gong-zuo-tai.png"
+      },
+      {
+        "pagePath": "pages/news/news",
+        "text": "消息",
+        "iconPath": "assets/images/icons/xiao-xi-default.png",
+        "selectedIconPath": "assets/images/icons/xiao-xi.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "assets/images/icons/wo-de-default.png",
+        "selectedIconPath": "assets/images/icons/wo-de.png"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "usingComponents": {
+    "qr-container": "wx-qr"
+  },
+  "sitemapLocation": "sitemap.json",
+  "useExtendedLib": {
+    "weui": true
+  },
+  "plugins": {
+    "chooseLocation": {
+      "version": "1.0.10",
+      "provider": "wx76a9a06e5b4e693e"
+    }
+  },
+  "requiredPrivateInfos": [
+    "onLocationChange",
+    "startLocationUpdate",
+    "chooseLocation",
+    "getLocation"
+  ]
+}

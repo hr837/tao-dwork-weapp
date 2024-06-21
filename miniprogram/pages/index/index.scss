@@ -1,0 +1,213 @@
+.page-container {
+  // height: 250rpx;
+}
+
+//授权按钮
+.page-user {
+  padding: 32rpx;
+  background-color: white;
+  margin-top: 20rpx;
+  z-index: 1;
+
+  .uesr-button {
+    height: 130rpx;
+    width: 100%;
+
+    .uesr-button-container {
+      flex: 1;
+      display: flex;
+      box-sizing: border-box;
+
+      //头像信息容器
+      .user-image-container {
+        width: 120rpx;
+        height: 120rpx;
+        background-color: #f2f2f2;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 20rpx;
+
+        //用户微信头像
+        .user-image {
+          width: 120rpx;
+          height: 120rpx;
+          vertical-align: middle;
+          flex: 1;
+        }
+      }
+
+      //个人授权信息
+      .uesr-empower {
+        flex: 4;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .uesr-empower-container {
+          display: flex;
+          align-items: center;
+
+          //用户微信名称
+          .uesr-empower-name {
+            line-height: 34rpx;
+            vertical-align: middle;
+            font-size: 34rpx;
+            padding-right: 10rpx;
+            color: #333;
+          }
+
+          //授权状态
+          .uesr-empower-status {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            background-color: rgb(0, 0, 0, 0.1);
+            border-radius: 15rpx;
+            font-size: 22rpx;
+            color: #666;
+          }
+
+          //微信绑定手机号
+          .uesr-empower-Phone {
+            font-size: 24rpx;
+            color: #333;
+            opacity: 0.5;
+            margin-left: 26rpx;
+          }
+        }
+
+        //授权提示信息
+        .uesr-empower-point-container {
+          display: flex;
+          padding-top: 2rpx;
+
+          //授权提示信息外部容器
+          .uesr-empower-point {
+            display: flex;
+            align-items: center;
+            border: 1rpx solid #fff;
+            opacity: 0.3;
+            border-radius: 10rpx;
+            width: fit-content;
+
+            .uesr-empower-point-one {
+              font-size: 24rpx;
+              // color: #fff;
+            }
+
+            .uesr-empower-point-two {
+              font-size: 24rpx;
+              // color: #fff;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*角色内容*/
+.nav {
+  padding: 40rpx 40rpx 0 40rpx;
+}
+
+/* 页面菜单 */
+.page-menu {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  height: fit-content;
+  padding: 16px 8px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 9px 1px rgba(4, 192, 211, 0.1);
+  overflow: hidden;
+}
+
+/* 页面菜单行 */
+.menu-row {
+  display: flex;
+  flex: 1;
+  // margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.menu-row:last-of-type {
+  margin: 0;
+}
+
+/* 页面菜单列 */
+.menu-column {
+  flex: 1;
+  display: flex;
+  background-color: #FFFFFF;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 40rpx 0rpx 0rpx 40rpx;
+  padding: 20rpx 86rpx;
+}
+
+.column {
+  margin-right: 40rpx;
+}
+
+.menu-column>view {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-column>view>image {
+  height: 140rpx;
+  width: 140rpx;
+  overflow: hidden;
+}
+
+.menu-text {
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 400;
+  font-size: 34rpx;
+  margin-top: 26rpx;
+  color: #333;
+  font-family: Source Han Sans CN-Regular;
+}
+
+.menu-remark {
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+  font-size: 12px;
+  color: #cdcdcd;
+}
+
+button {
+  background: 0;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: auto !important;
+  display: flex;
+  color: white;
+  font-size: 12px;
+}
+
+.standard {
+  font-size: 28rpx;
+  color: #0089FF;
+  position: fixed;
+  left: 50%;
+  top: 90%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+}

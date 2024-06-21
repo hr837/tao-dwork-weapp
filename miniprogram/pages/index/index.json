@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "auth-button": "/components/common/auth-button/auth-button",
+    "t-button": "tdesign-miniprogram/button/button"
+  }
+}

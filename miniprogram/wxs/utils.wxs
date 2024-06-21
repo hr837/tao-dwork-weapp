@@ -1,0 +1,273 @@
+/**
+ * 选择器显示默认值
+ * @param _sources 数据源
+ * @param _value 字典编码
+ * @param _default 默认值
+ */
+var codeToNameWithDefault = function (_sources, _value, _default) {
+  var result = _default;
+  var _tempResult = [];
+
+  if (_sources && _value) {
+    var _tempSource = _sources;
+
+    if (_value.constructor == 'Array') {
+      for (var i = 0; i < _value.length; i++) {
+        var tempValue = _value[i];
+
+        if (_tempSource && _tempSource.constructor == 'Array') {
+          for (var j = 0; j < _tempSource.length; j++) {
+            var _current = _tempSource[j];
+            if (_current.value == tempValue) {
+              _tempResult.push(_current.label);
+
+              if (_current && _current.children) {
+                _tempSource = _current.children;
+              } else {
+                _tempSource = [];
+              }
+
+              break;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  return _tempResult.length ? _tempResult.join(' ') : result;
+}
+
+/**
+ * 字典编码转字典名称
+ * @param _dic 字典项集
+ * @param _code 字典编码
+ */
+var dicCodeToName = function (_dicItems, _code) {
+  var result = '--';
+  if (_dicItems && _dicItems.length) {
+    for (var index = 0; index < _dicItems.length; index++) {
+      var item = _dicItems[index]
+      if (item.value == _code) {
+        result = item.label;
+        break;
+      }
+    }
+  }
+
+  return result;
+}
+
+/**
+ * 字典编码转字典名称
+ * @param _dicItems 字典项集
+ * @param _codes 字典编码
+ */
+var dicCodesToNames = function (_dicItems, _codes) {
+  var results = [];
+  if (_codes) {
+    var values = _codes.split(',');
+    if (_dicItems && _dicItems.length) {
+      for (var codeIndex = 0; codeIndex < values.length; codeIndex++) {
+        var value = values[codeIndex];
+        for (var index = 0; index < _dicItems.length; index++) {
+          var dicItem = _dicItems[index]
+          if (dicItem.value == value) {
+            results.push(dicItem.label);
+            break;
+          }
+        }
+      }
+    }
+  }
+
+  return results;
+}
+
+/**
+ * 机构级联项集转名称
+ * @param _orgItems 字典项集
+ */
+var orgItemsToName = function (_orgItems) {
+  var results = '';
+  if (_orgItems && _orgItems.length) {
+    results = _orgItems[_orgItems.length - 1].label;
+  }
+  return results;
+}
+
+/**
+ * 时间格式化
+ * @param _date 日期
+ * @param _fmt 格式
+ */
+var formatTime = function (date) {
+  if (!date) {
+    return '';
+  }
+
+  // 返回当前时间对象
+  var date = getDate(date);
+  var year = date.getFullYear()
+  var month = fixz(date.getMonth() + 1)
+  var day = fixz(date.getDate())
+
+  var hour = fixz(date.getHours())
+  var minute = fixz(date.getMinutes())
+  var second = fixz(date.getSeconds())
+
+  return [year, month, day].join('-') + ' ' + [hour, minute, second].join(':')
+}
+
+/**
+ * 时间格式化-09:24:34
+ * @param _date 日期
+ * @param _fmt 格式
+ */
+var formatOnlyTime = function (date) {
+  if (!date) {
+    return '';
+  }
+
+  // 返回当前时间对象
+  var date = getDate(date);
+  var hour = fixz(date.getHours())
+  var minute = fixz(date.getMinutes())
+  var second = fixz(date.getSeconds())
+
+  return [hour, minute, second].join(':')
+}
+
+/**
+ * 日期格式化
+ * @param _date 日期
+ */
+var formatDate = function (date) {
+  if (!date) {
+    return '';
+  }
+
+  // 返回当前时间对象
+  var date = getDate(date);
+  var year = date.getFullYear()
+  var month = fixz(date.getMonth() + 1)
+  var day = fixz(date.getDate())
+
+  return [year, month, day].join('-')
+}
+
+var fixz = function (num) {
+  if (num < 10) {
+    return '0' + num
+  }
+
+  return num;
+}
+
+/**
+ * 用户转抢单人员头像列表
+ * @param customers 用户集
+ */
+var customerToSnatchers = function (customers) {
+  var snatchers = [];
+  if (customers && customers.length) {
+    for (var index = 0; index < customers.length; index++) {
+      var element = customers[index];
+      snatchers.push(element.wxAvatarUrl);
+    }
+  }
+
+  return snatchers;
+}
+
+/**
+ * 手机号脱敏
+ * @param value 值
+ */
+var strReplace = function (value) { //  *号替换
+  value = value.toString();
+  var str = '';
+  str = value.substring(0, 3) + '****' + value.substring(7, value.length);
+  return str;
+}
+
+/**
+ * 姓名替换
+ * @param value 值
+ */
+var nameReplace = function (value) {
+  var result = '';
+
+  if (value) {
+    var length = value.length;
+    switch (length) {
+      case 1:
+      case 2:
+      case 3:
+        var padStr = '';
+        for (var index = 0; index < length - 1; index++) {
+          padStr += '*';
+        }
+        result = value.substring(0, 1) + padStr;
+        break;
+      default:
+        var padStr = '';
+        for (var index = 0; index < length - 2; index++) {
+          padStr += '*';
+        }
+        result = value.substring(0, 2) + padStr;
+        break;
+    }
+  }
+
+  return result;
+}
+
+/**
+ * 身份证号脱敏
+ * @param value 值
+ */
+var IDReplace = function (str) {
+  if (str) {
+    if (str.length < 8) {
+      return str;
+    }
+
+    var len = str.length;
+    var first = str.substring(0, 6);
+    var last = str.substring(len - 4, len);
+    var middle = '';
+    for (var i = 0; i < len - 8; i++) {
+      middle += '*';
+    }
+    return first + middle + last;
+  }
+}
+/**
+ * 处理空字符串null undefined 显示 ''
+ * @param value 值
+ */
+var handleNullStr = function (str) {
+  if (str) {
+    return str;
+  }
+  if (str == null || str == undefined) {
+    return '';
+  }
+  return '';
+}
+
+module.exports = {
+  codeToNameWithDefault: codeToNameWithDefault,
+  formatTime: formatTime,
+  formatDate: formatDate,
+  formatOnlyTime: formatOnlyTime,
+  dicCodeToName: dicCodeToName,
+  dicCodesToNames: dicCodesToNames,
+  orgItemsToName: orgItemsToName,
+  strReplace: strReplace,
+  nameReplace: nameReplace,
+  customerToSnatchers: customerToSnatchers,
+  IDReplace: IDReplace,
+  handleNullStr: handleNullStr,
+}

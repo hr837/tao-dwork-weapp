@@ -1,0 +1,25 @@
+<!-- components/region-picker/region-picker.wxml -->
+<view class="region_picker {{isShow?'show':''}}" bindtap="clickMask" id="region_picker_mask">
+  <view class="region_container">
+    <view class="region_picker_title">
+      <view class="region_picker_cancel" bindtap="cancel">取消</view>
+      请选择地区
+      <view class="region_picker_confirm" bindtap="confirm">确定</view>
+    </view>
+    <view class="region_picker_tab">
+      <block wx:for="{{tabList}}" wx:key="key">
+        <!-- <view class="region_picker_tab_item" style="max-width:{{100 / tabList.length}}%;" wx:if="{{item.selectIndex!=-999}}" data-index="{{index}}" bindtap="clickTabItem"> -->
+        <view class="region_picker_tab_item" style="max-width:100%;" wx:if="{{item.selectIndex!=-999}}" data-index="{{index}}" bindtap="clickTabItem">
+          {{item.selectIndex==-1?'请选择':item.label}}
+        </view>
+      </block>
+    </view>
+    <view class="region_picker_content">
+      <view>
+        <view class="region_picker_content_item" data-index="{{index}}" bindtap="clickItem" wx:for="{{tabList[tabList.length - 1].list}}" wx:key="key">
+          {{item.label}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
