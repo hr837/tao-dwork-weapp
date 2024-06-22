@@ -1,20 +1,20 @@
-import AREA_API from '../services/area-service'
+import AREA_API from '../services/sys-area-service'
 
 // wx.setStorage(wx.setStorageSync)
 // wx.getStorage(wx.getStorageSync)
 // wx.clearStorage(wx.clearStorageSync)
 
-const storageKey = 'AREA_KEY';
+const storageKey = 'SYS_AREA_KEY';
 
 const setAreaStorage: any = () => {
   // 获取自定义数据
-  return AREA_API.getAreaList(2);
+  return AREA_API.settingList();
 }
 
 /**
  * 获取辖区缓存数据
  */
-const getAreaStorage: Function = (): Promise<any> => {
+const getSysAreaStorage: Function = (): Promise<any> => {
   // 参数处理
   const areaStorage = wx.getStorageSync(storageKey);
 
@@ -25,14 +25,14 @@ const getAreaStorage: Function = (): Promise<any> => {
       setAreaStorage().then((_response: any) => {
         if (_response && _response.data) {
           const dataSource = _response.data;
-          const rootNodes: Array<any> = dataSource.filter((x: any) => !x.parentCode).map((x: any) => ({ label: x.name, value: x.code, parentValue: x.parentCode }));
+          const rootNodes: Array<any> = dataSource.filter((x: any) => !x.parentCode || x.levelCode == 1).map((x: any) => ({ label: x.name, value: x.areaCode, level: x.levelCode, parentValue: x.parentCode }));
 
           /**
            * 递归构造树结构
            * @param parent 上级节点
            */
           const func = (parent: any) => {
-            const children = dataSource.filter((x: any) => x.parentCode == parent.value).map((x: any) => ({ label: x.name, value: x.code, parentValue: x.parentCode }));
+            const children = dataSource.filter((x: any) => x.parentCode == parent.value).map((x: any) => ({ label: x.name, value: x.areaCode, level: x.levelCode, parentValue: x.parentCode }));
             if (children && children.length) {
               parent.children = children;
               // 下级节点
@@ -70,7 +70,7 @@ const getCasecadeItemByCode: Function = (_code: string): Promise<any> => {
     }
 
     // 参数处理
-    getAreaStorage().then((_res: any) => {
+    getSysAreaStorage().then((_res: any) => {
       if (_res) {
         const _casecadeItems: Array<any> = [];
         const _splitCodes = _code.split('$');
@@ -97,6 +97,6 @@ const getCasecadeItemByCode: Function = (_code: string): Promise<any> => {
 }
 
 export default {
-  getAreaStorage,
+  getSysAreaStorage,
   getCasecadeItemByCode,
 }

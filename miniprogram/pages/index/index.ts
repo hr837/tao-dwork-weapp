@@ -39,11 +39,6 @@ Page({
     let userPhone = setting?.contactPhone
     console.log(app.globalData);
 
-    // debugger;
-    DIC_STORAGE_API.getDicByCategoryCode('xb').then((_data: any) => {
-      console.log(_data, '性别缓存');
-    })
-
   },
 
   /**
@@ -76,20 +71,15 @@ Page({
   },
 
   onShow() {
-    this.init();
-  },
-
-  /**
-   * 初始化
-   * @param _options 扩展参数
-   */
-  init(_options?: any) {
     const _this = this;
 
     // 回调函数
     let _authCallback = (_authInfo?: CommonType.IAuthViewModel | null) => {
       if (_authInfo) {
         _this.setData({ userStatus: +_authInfo.status })
+
+
+        this.init();
       }
     }
 
@@ -102,6 +92,17 @@ Page({
         _authCallback(app.globalData.authInfo);
       }
     }
+  },
+
+  /**
+   * 初始化
+   * @param _options 扩展参数
+   */
+  init(_options?: any) {
+    // debugger;
+    DIC_STORAGE_API.getDicByCategoryCode('xb').then((_data: any) => {
+      console.log(_data, '性别缓存');
+    })
   },
   /**
    * 用户信息更新事件

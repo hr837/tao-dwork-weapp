@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+    "t-cascader": "tdesign-miniprogram/cascader/cascader"
   },
   "navigationBarTitleText": "创建企业"
 }

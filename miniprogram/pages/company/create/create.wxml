@@ -12,10 +12,8 @@
     <t-button theme="primary" bind:tap="handleSubmit" block>创建</t-button>
   </view>
 
-  <!-- 地区选择器 -->
-  <t-picker visible="{{areaPickerVisable}}" value="{{area}}" title="选择地区" cancelBtn="取消" confirmBtn="确认" bind:confirm="onAreaChange">
-    <t-picker-item options="{{areaOptions}}" />
-  </t-picker>
+  <!-- 地区级联选择 -->
+  <t-cascader visible="{{areaPickerVisable}}" model:value="{{area}}" options="{{areaOptions}}" data-name="area" title="选择地区" bindchange="onPickerChange" bindpick="onPickeColumnChange" bindcancel="onHidePicker" />
 
   <!-- 行业选择器 -->
   <t-picker visible="{{industryPickerVisable}}" value="{{industry}}" title="选择行业" cancelBtn="取消" confirmBtn="确认" bind:confirm="onIndustryChange">

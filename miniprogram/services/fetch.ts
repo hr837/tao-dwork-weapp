@@ -126,6 +126,8 @@ export const fetch: Function = (agr: CommonType.IRequestConfig): Promise<any> =>
 
   // token处理
   const token = wx.getStorageSync('api_token')
+  // 租户ID
+  const tenantId = wx.getStorageSync('tenant_id')
   // 请求方法
   method = method || 'GET'
   // 响应内容
@@ -143,6 +145,9 @@ export const fetch: Function = (agr: CommonType.IRequestConfig): Promise<any> =>
     };
     if (token) {
       header['Authorization'] = `${authType == 'Basic' ? 'Basic' : 'Bearer'} ${token}`
+    }
+    if (tenantId) {
+      header['tenant-id'] = `${tenantId}`
     }
 
     wx.request({
@@ -189,6 +194,12 @@ const refreshToken: Function = (contentType: string, authType: 'Basic' | 'Bearer
         };
         if (newToken) {
           header['Authorization'] = `${authType == 'Basic' ? 'Basic' : 'Bearer'} ${newToken}`
+        }
+
+        // 租户ID
+        const tenantId = wx.getStorageSync('tenant_id')
+        if (tenantId) {
+          header['tenant-id'] = `${tenantId}`
         }
 
         wx.request({
@@ -274,6 +285,8 @@ export const fileFetch: Function = (agr: CommonType.IRequestConfig): Promise<any
   }
   // token处理
   const token = wx.getStorageSync('api_token')
+  // 租户ID
+  const tenantId = wx.getStorageSync('tenant_id')
   // 响应内容
   contentType = contentType || 'multipart/form-data'
 
@@ -290,6 +303,9 @@ export const fileFetch: Function = (agr: CommonType.IRequestConfig): Promise<any
     };
     if (token) {
       header['Authorization'] = `${authType == 'Basic' ? 'Basic' : 'Bearer'} ${token}`
+    }
+    if (tenantId) {
+      header['tenant-id'] = `${tenantId}`
     }
 
     wx.uploadFile({
@@ -335,6 +351,11 @@ const fileRefreshToken: Function = (contentType: string, authType: 'Basic' | 'Be
         };
         if (newToken) {
           header['Authorization'] = `${authType == 'Basic' ? 'Basic' : 'Bearer'} ${newToken}`
+        }
+        // 租户ID
+        const tenantId = wx.getStorageSync('tenant_id')
+        if (tenantId) {
+          header['tenant-id'] = `${tenantId}`
         }
 
         wx.uploadFile({

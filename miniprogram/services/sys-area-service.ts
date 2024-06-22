@@ -1,11 +1,11 @@
 import { fetch, objectToQueryString } from './fetch'
 
-const _serviceName = '/api/area';
+const _serviceName = '/admin-api/sysArea';
 
 /**
  * 获取省数据
  */
-const getByParentCode: any = (_parentCode?: string) => {
+const settingParentList: any = (_parentCode?: string) => {
 
   const _queryString = objectToQueryString({ parentCode: _parentCode });
 
@@ -16,16 +16,16 @@ const getByParentCode: any = (_parentCode?: string) => {
 }
 
 /**
- * 获取省市区列表
+ * 获取列表
  */
-const getAreaList: any = (_source: number = 1) => {
+const settingList: any = (_source: number = 1) => {
   return fetch({
-    url: `${_serviceName}/getAll?source=${_source}`,
+    url: `${_serviceName}/settingList`,
     method: 'GET'
   });
 }
 
 export default {
-  getAreaList,
-  getByParentCode
+  settingList,
+  settingParentList
 }
