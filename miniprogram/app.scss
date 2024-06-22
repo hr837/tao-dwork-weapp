@@ -25,15 +25,15 @@ page {
   --page-padding-bottom: 20rpx;
 
   // t-design css variable
-  -td-primary-color-1: #f2f3ff;
-  -td-primary-color-2: #d9e1ff;
-  -td-primary-color-3: #b5c7ff;
-  -td-primary-color-4: #8eabff;
-  -td-primary-color-5: #618dff;
-  -td-primary-color-6: #366ef4;
-  -td-primary-color-7: #0052d9;
-  -td-primary-color-8: #003cab;
-  -td-primary-color-9: #002a7c;
+  --td-primary-color-1: #f2f3ff;
+  --td-primary-color-2: #d9e1ff;
+  --td-primary-color-3: #b5c7ff;
+  --td-primary-color-4: #8eabff;
+  --td-primary-color-5: #618dff;
+  --td-primary-color-6: #366ef4;
+  --td-primary-color-7: #0052d9;
+  --td-primary-color-8: #003cab;
+  --td-primary-color-9: #002a7c;
   --td-primary-color-10: #001a57;
 
 
@@ -53,7 +53,7 @@ page {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  min-height: 100%;
+  height: 100%;
 }
 
 // [详情页]预览图的统一设置

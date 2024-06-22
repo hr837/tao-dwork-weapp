@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'iconfont';  /* Project id 4593257 */
-  src: url('//at.alicdn.com/t/c/font_4593257_9twtee56vol.ttf?t=1718900463043') format('truetype');
+  font-family: "iconfont"; /* Project id 4593257 */
+  src: url('//at.alicdn.com/t/c/font_4593257_ndhkjp5tj7.ttf?t=1719059064847') format('truetype');
 }
 
 .iconfont {
@@ -9,6 +9,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.iconfont-crown:before {
+  content: "\e9ff";
 }
 
 .iconfont-lock:before {

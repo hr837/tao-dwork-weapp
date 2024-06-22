@@ -1,0 +1,42 @@
+<!--pages/mine/zone/zone.wxml-->
+<view class="page mineZone">
+  <view class="mineZone__top">
+    <t-cell t-class="mineZone__info" t-class-title="mineZone__info__name" title="小李" description="安天下" note="个人信息" arrow bind:click="onUserInfo">
+      <t-avatar slot="left-icon" class="avatar-example" image="{{avatarImage}}" />
+    </t-cell>
+    <t-grid class="block" column="{{3}}" border hover t-class="mineZone__quick">
+      <t-grid-item text="待审核" image="slot" t-class-content="mineZone__quick__content" bind:click="onApprove">
+        <view slot="image" class="mineZone__quick__content--task">{{taskCount}}</view>
+      </t-grid-item>
+      <t-grid-item text="二维码" icon="qrcode" t-class-content="mineZone__quick__content" bind:click="onQrCode" />
+      <t-grid-item text="我参与的" icon="list" t-class-content="mineZone__quick__content" bind:click="onJoined" />
+    </t-grid>
+  </view>
+
+
+  <view class="mineZone__middle">
+    <t-cell-group>
+      <t-cell title="我的企业" arrow hover bind:click="onCompany">
+        <t-icon slot="left-icon" prefix="iconfont" name="crown" color="#ffd502" size="48rpx" />
+      </t-cell>
+    </t-cell-group>
+
+    <t-cell-group t-class="mineZone__usually" title="其他">
+      <t-cell left-icon="setting-1" title="基本信息" arrow hover />
+      <t-cell left-icon="chat-error" title="意见反馈" arrow hover bind:click="onFeedback" />
+      <t-cell left-icon="help-circle" title="关于我们" arrow hover bind:click="onAbout" />
+    </t-cell-group>
+  </view>
+
+  <view class="mineZone__bottom">
+    <view class="mineZone__loginOut">
+      <t-button theme="danger" size="large" variant="text" block bind:tap="onLoginOut">退出登录</t-button>
+    </view>
+    <t-notice-bar visible="{{noticeVisable}}" theme="warning" prefixIcon="sound-high" content="您的个人信息暂未认证，请立即认证" t-class="mineZone__notice">
+      <view slot="suffix-icon">
+        <t-button theme="primary" size="extra-small" shape="round" t-class="mineZone__notice__button" bind:tap="onAuthenticate">认证</t-button>
+      </view>
+    </t-notice-bar>
+  </view>
+
+</view>

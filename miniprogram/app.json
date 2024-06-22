@@ -4,7 +4,7 @@
     "pages/index/index",
     "pages/punch/punch",
     "pages/news/news",
-    "pages/mine/mine",
+    "pages/mine/zone/zone",
     "pages/user-service-agree/user-service-agree",
     "pages/privacy-state/privacy-state",
     "pages/project/project-list/project-list",
@@ -45,7 +45,7 @@
         "selectedIconPath": "assets/images/icons/xiao-xi.png"
       },
       {
-        "pagePath": "pages/mine/mine",
+        "pagePath": "pages/mine/zone/zone",
         "text": "我的",
         "iconPath": "assets/images/icons/wo-de-default.png",
         "selectedIconPath": "assets/images/icons/wo-de.png"
@@ -59,6 +59,7 @@
   },
   "usingComponents": {
     "qr-container": "wx-qr",
+    "t-icon": "tdesign-miniprogram/icon/icon",
     "t-input": "tdesign-miniprogram/input/input",
     "t-cell-group":"tdesign-miniprogram/cell-group/cell-group",
     "t-cell": "tdesign-miniprogram/cell/cell",
