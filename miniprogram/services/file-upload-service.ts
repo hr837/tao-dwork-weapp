@@ -15,7 +15,6 @@ export const uploadFile: Function = (_params: {
   formData: any,
   name?: string
 }): Promise<any> => {
-
   let {
     filePath,
     formData,

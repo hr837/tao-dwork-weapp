@@ -168,7 +168,7 @@ Page({
    */
   init(_options?: any) {
     const _this = this;
-    
+
     wx.showLoading({ title: '加载中...' })
 
     // 回调函数
@@ -502,7 +502,6 @@ Page({
               wx.showToast({ title: "暂不支持编辑:" + _res.message, icon: "none" })
             });
           }
-
         }
       }
     });
@@ -510,7 +509,7 @@ Page({
 
   /**
    * 用户服务协议
-   * @param _e 
+   * @param _e 句柄
    */
   onUserServiceAgree(_e: any) {
     wx.navigateTo({ url: '/pages/user-service-agree/user-service-agree' })
