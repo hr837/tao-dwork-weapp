@@ -294,7 +294,7 @@ Component({
       _this.setData({
         locationPromise: new Promise((_resolve, _reject) => {
           mapService.getAddressByLocation(`${_lat},${_lng}`).then((_locationRes: any) => {
-            if (_locationRes.code == 0) {
+            if (_locationRes.code == 200) {
               const data = _locationRes.data;
               if (data && data.ad_info) {
                 const adcodes: any = [];
@@ -308,7 +308,7 @@ Component({
 
                 // 获取行政区
                 mapService.search(adcodes.join(',')).then((_areaRes: any) => {
-                  if (_areaRes.code == 0) {
+                  if (_areaRes.code == 200) {
                     // 选中更新
                     _resolve(_areaRes.data);
                   } else {

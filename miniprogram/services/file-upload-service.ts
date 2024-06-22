@@ -4,7 +4,7 @@ import Config from '../config/base';
 /**
  * 上传文件服务
  */
-const _serviceName = '/api/file';
+const _serviceName = '/admin-api/file';
 
 /**
  * 文件上传
@@ -13,24 +13,18 @@ const _serviceName = '/api/file';
 export const uploadFile: Function = (_params: {
   filePath: string,
   formData: any,
-  name?: string,
-  query: { projectId: string, directoryName?: string, fileName?: string, containsDate?: boolean, isTemp?: boolean, isCompress?: boolean, ocrType?: number }
+  name?: string
 }): Promise<any> => {
 
   let {
     filePath,
     formData,
-    name,
-    query
+    name
   } = _params;
 
-
-
-  // 参数处理
-  const _queryString = objectToQueryString(query);
   // 参数处理
   return fileFetch({
-    url: `${Config.mediaUrl}${_serviceName}?${_queryString}`,
+    url: `${Config.apiUrl}${_serviceName}/upload`,
     params: { filePath, formData, name }
   });
 }

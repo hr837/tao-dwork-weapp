@@ -10,21 +10,10 @@ Component({
      * 值
      */
     value: {
-      type: Array,
+      type: String,
       observer: function (_newVal: any, _oldVal: any, _changePath: any) {
         if (_newVal != _oldVal) {
-          if (_newVal.length != _oldVal.length) {
-            this.setData({ imgUrls: _newVal })
-          } else {
-            for (let index = 0; index < _newVal.length; index++) {
-              const element = _newVal[index];
-              const oldElement = _oldVal[index];
-              if (element != oldElement) {
-                this.setData({ imgUrls: _newVal })
-                break;
-              }
-            }
-          }
+          this.setData({ imgUrl: _newVal })
         }
       }
     },
@@ -50,17 +39,6 @@ Component({
       value: 0
     },
     /**
-     * 数据
-     */
-    value: {
-      type: String,
-      observer: function (_newVal: any, _oldVal: any, _changePath: any) {
-        if (_newVal != _oldVal) {
-          this.setData({ imgUrl: _newVal })
-        }
-      }
-    },
-    /**
      * 是否显示删除按钮
      */
     showDelete: {
@@ -76,7 +54,7 @@ Component({
     /**
      * 多媒体服务地址
      */
-    mediaUrl: config.mediaUrl,
+    mediaUrl: config.apiUrl,
     /**
      * 图片ID
      */
@@ -105,22 +83,16 @@ Component({
         success: function (res: WechatMiniprogram.ChooseMediaSuccessCallbackResult) {
           if (res.tempFiles) {
             wx.showLoading({ title: '加载中...' })
+
             // 上传图片
             uploadFile({
               filePath: res.tempFiles[0].tempFilePath,
               name: 'file',
-              query: {
-                projectId: config.mediaAppId,
-                directoryName: _this.data.busType,
-                fileName: '',
-                containsDate: false,
-                isTemp: false,
-                isCompress: false,
-                ocrType: _this.data.ocrType
-              }
             })
               .then((res: any) => {
                 wx.hideLoading();
+
+                console.log(res, '文件信息==========')
 
                 let filePath;
                 const fileRes = JSON.parse(res);

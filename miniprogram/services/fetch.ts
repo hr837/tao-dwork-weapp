@@ -90,10 +90,11 @@ export const getAuth: Function = () => {
         method: 'POST',
         header: header,
         success(res: any) {
-          const data: any = res.data;
+          const data: CommonType.IAuthViewModel = res.data;
           if (data) {
-            wx.setStorageSync('api_token', data.access_token);
-            wx.setStorageSync('api_refresh_token', data.refresh_token);
+            wx.setStorageSync('api_token', data?.access_token);
+            wx.setStorageSync('api_refresh_token', data?.refresh_token);
+            wx.setStorageSync('tenant_id', data?.user_info?.tenantId);
           }
 
           resolve(res.data)
@@ -272,7 +273,7 @@ export const fileFetch: Function = (agr: CommonType.IRequestConfig): Promise<any
     requestUrl = `${config.mediaUrl}${url}`;
   }
   // token处理
-  const token = wx.getStorageSync('token')
+  const token = wx.getStorageSync('api_token')
   // 响应内容
   contentType = contentType || 'multipart/form-data'
 
@@ -283,45 +284,39 @@ export const fileFetch: Function = (agr: CommonType.IRequestConfig): Promise<any
     name: params.name || 'file',
   }
 
-  // 判断token是否存在
-  if (token) {
-    return new Promise((resole, reject) => {
-      let header: any = {
-        'Content-Type': contentType,
-      };
-      if (token) {
-        header['Authorization'] = `${authType == 'Basic' ? 'Basic' : 'Bearer'} ${token}`
-      }
+  return new Promise((resole, reject) => {
+    let header: any = {
+      'Content-Type': contentType,
+    };
+    if (token) {
+      header['Authorization'] = `${authType == 'Basic' ? 'Basic' : 'Bearer'} ${token}`
+    }
 
-      wx.uploadFile({
-        ...httpDefault,
-        header: header,
-        success(res: any) {
-          if (res && (res.statusCode == 401 || res.statusCode == 403)) {
-            resole(refreshToken(contentType, authType, httpDefault))
-          } else {
-            resole(res.data)
-          }
-        },
-        fail(err: any) {
-          if (err.response && (err.response.status == '401' || err.response.status == '403')) {
-            // window.location.href = '/login'
-            // console.log('tokenfail')
-            resole(refreshToken(contentType, httpDefault))
-          } else {
-            // console.log('else')
-            reject(err)
-          }
+    wx.uploadFile({
+      ...httpDefault,
+      header: header,
+      success(res: any) {
+        if (res && (res.statusCode == 401 || res.statusCode == 403)) {
+          resole(fileRefreshToken(contentType, authType, httpDefault))
+        } else {
+          resole(res.data)
         }
-      })
-    }).catch((_err: any) => {
-      // console.log('err')
-      // console.log(err.response)
+      },
+      fail(err: any) {
+        if (err.response && (err.response.status == '401' || err.response.status == '403')) {
+          // window.location.href = '/login'
+          // console.log('tokenfail')
+          resole(fileRefreshToken(contentType, httpDefault))
+        } else {
+          // console.log('else')
+          reject(err)
+        }
+      }
     })
-  } else {
-    // token过期，
-    return fileRefreshToken(contentType, httpDefault)
-  }
+  }).catch((_err: any) => {
+    // console.log('err')
+    // console.log(err.response)
+  })
 }
 
 /**

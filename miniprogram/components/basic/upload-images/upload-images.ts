@@ -95,15 +95,7 @@ Component({
           for (var index = 0; index < tempFilePaths.length; index++) {
             uploadFile({
               filePath: res.tempFiles[index].tempFilePath,
-              name: 'file',
-              query: {
-                projectId: config.mediaAppId,
-                directoryName: _this.data.busType,
-                fileName: '',
-                containsDate: false,
-                isTemp: false,
-                isCompress: false
-              }
+              name: 'file'
             })
               .then((res: any) => {
                 wx.hideLoading();
