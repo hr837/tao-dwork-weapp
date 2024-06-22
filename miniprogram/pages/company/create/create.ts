@@ -111,7 +111,7 @@ Page({
       // 名称
       name: this.data.name,
       // 区域
-      area: this.data.area && this.data.area.length ? this.data.area[0] : '',
+      area: this.data.area,
       // 所属行业
       industry: this.data.industry && this.data.industry.length ? +this.data.industry[0] : 0,
       // 企业规模
