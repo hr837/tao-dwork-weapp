@@ -42,30 +42,25 @@ Page({
 
     wx.showLoading({ title: '加载中...' })
 
-    // // 回调函数
-    // let _authCallback = (_authInfo?: CommonType.IAuthViewModel | null) => {
+    // 回调函数
+    let _authCallback = (_authInfo?: CommonType.IAuthViewModel | null) => {
+      if (_authInfo) {
+        // TODO: 业务处理
+        this.init()
+      } else {
+      }
+      wx.hideLoading();
+    };
 
-    //   if (_authInfo) {
-    //     // TODO: 业务处理
-
-    //     this.init()
-
-    //   } else {
-
-    //   }
-
-    //   wx.hideLoading();
-    // };
-
-    // if (app.globalData.authInfo) {
-    //   _authCallback(app.globalData.authInfo);
-    // } else {
-    //   if (app.globalData.authSuccess) {
-    //     _authCallback(app.globalData.authInfo);
-    //   } else {
-    //     app.authCallback = _authCallback;
-    //   }
-    // }
+    if (app.globalData.authInfo) {
+      _authCallback(app.globalData.authInfo);
+    } else {
+      if (app.globalData.authSuccess) {
+        _authCallback(app.globalData.authInfo);
+      } else {
+        app.authCallback = _authCallback;
+      }
+    }
   },
 
   /**
