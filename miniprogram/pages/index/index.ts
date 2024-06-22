@@ -192,6 +192,26 @@ Page({
   onProject(_e: any) {
     wx.navigateTo({ url: '/pages/project/project-list/project-list' })
   },
+  /**
+   * 扫描二维码
+   * @param _e 参数
+   */
+  onScanQrcode(_e: any) {
+    const _this = this;
+
+    wx.scanCode({
+      onlyFromCamera: false,
+      success: (_res: any) => {
+        const result = _res.result;
+
+        console.log(result, '扫描二维码');
+      },
+      fail: (_err: any) => {
+        
+        console.log(_err, '扫描二维码失败');
+      }
+    })
+  },
 
   /**
    * 跳转到实名认证

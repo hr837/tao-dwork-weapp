@@ -154,9 +154,9 @@ Page({
     const { name } = _e.currentTarget.dataset;
     const { selectedOptions, value } = _e.detail;
 
-    this.setData({ 
-      [`${name}`]: value, 
-      [`${name}Text`]: selectedOptions?.map((x: any) => x.label)?.join(',') 
+    this.setData({
+      [`${name}`]: value,
+      [`${name}Text`]: selectedOptions?.map((x: any) => x.label)?.join(',')
     });
     if (selectedOptions) {
       // 对象深拷贝赋值
