@@ -1,4 +1,4 @@
-import DISTRICT_API from '../services/area-service'
+import DISTRICT_API from '../services/sys-area-service'
 
 // wx.setStorage(wx.setStorageSync)
 // wx.getStorage(wx.getStorageSync)

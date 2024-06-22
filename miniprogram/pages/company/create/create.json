@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "t-dialog": "tdesign-miniprogram/dialog/dialog"
+    "t-dialog": "tdesign-miniprogram/dialog/dialog",
+    "t-cascader": "tdesign-miniprogram/cascader/cascader"
   },
   "navigationBarTitleText": "创建企业"
 }

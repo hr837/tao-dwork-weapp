@@ -4,7 +4,7 @@ import config from '../config/base';
 /**
  * 短信服务
  */
-const _serviceName = `${config.baseUrl}/sms`;
+const _serviceName = `${config.apiUrl}/sms`;
 
 /**
  * 获取短信验证码

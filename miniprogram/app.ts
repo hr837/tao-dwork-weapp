@@ -92,7 +92,7 @@ App<IAppOption>({
 
     // // 获取小程序配置
     // miniSettingService.getSetting().then((_res: any) => {
-    //   if (_res.code == 0) {
+    //   if (_res.code == 200) {
     //     _this.globalData.setting = { contactPhone: _res.data.contactPhone };
     //   }
     // })

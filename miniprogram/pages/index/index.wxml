@@ -23,7 +23,7 @@
             <image src="/assets/images/icons/tian-jia.png" style="width: 24rpx; height: 24rpx; margin-right: 12rpx;"></image>
             <view>创建企业</view>
           </view>
-          <view style="flex: 1; display: flex; box-sizing: border-box; align-items: center; justify-content: center;">
+          <view style="flex: 1; display: flex; box-sizing: border-box; align-items: center; justify-content: center;" bind:tap="onScanQrcode">
             <image src="/assets/images/icons/sao-ma.png" style="width: 24rpx; height: 24rpx; margin-right: 12rpx;"></image>
             <view>扫一扫</view>
           </view>

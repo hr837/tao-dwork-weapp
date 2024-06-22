@@ -46,7 +46,7 @@ Component({
                     this.setData({ cityPromise: mapService.getChildren(province.id) });
                     // }
                     (this.data.cityPromise as any).then((_citiesRes: any) => {
-                      if (_citiesRes.code == 0) {
+                      if (_citiesRes.code == 200) {
                         const cities = _citiesRes.data;
                         this.setData({ cities: cities });
                         if (selectedValue.length > 1) {
@@ -60,7 +60,7 @@ Component({
                             this.setData({ districtPromise: mapService.getChildren(city.id) });
                             // }
                             (this.data.districtPromise as any).then((_districtsRes: any) => {
-                              if (_districtsRes.code == 0) {
+                              if (_districtsRes.code == 200) {
                                 const districts = _districtsRes.data;
                                 this.setData({ districts: districts });
                                 if (selectedValue.length > 2) {
@@ -443,7 +443,7 @@ Component({
 
         // 获取省会行政区
         (this.data.provincePromise as any).then((_res: any) => {
-          if (_res.code == 0) {
+          if (_res.code == 200) {
             // 数据初始化
             _this.setData({ provinces: _res.data })
 
@@ -479,7 +479,7 @@ Component({
                   this.setData({ latitude, longitude });
                   // 行政区解析
                   mapService.getAddressByLocation(`${latitude},${longitude}`).then((_locationRes: any) => {
-                    if (_locationRes.code == 0) {
+                    if (_locationRes.code == 200) {
                       const data = _locationRes.data;
                       if (data && data.ad_info) {
                         const adcodes: any = [];
@@ -493,7 +493,7 @@ Component({
 
                         // 获取行政区
                         mapService.search(adcodes.join(',')).then((_areaRes: any) => {
-                          if (_areaRes.code == 0) {
+                          if (_areaRes.code == 200) {
                             const areas: Array<any> = _areaRes.data;
                             if (areas && areas.length && areas[0]) {
                               // 选中更新
@@ -668,7 +668,7 @@ Component({
               this.setData({ cityPromise: getCities });
               // 加载城市
               (_this.data.cityPromise as any).then((_res: any) => {
-                if (_res.code == 0) {
+                if (_res.code == 200) {
                   _this.setData({ cities: _res.data })
                   if (_callback) {
                     _callback(true);
@@ -685,7 +685,7 @@ Component({
               this.setData({ districtPromise: getDistricts });
               // 加载县区
               (_this.data.districtPromise as any).then((_res: any) => {
-                if (_res.code == 0) {
+                if (_res.code == 200) {
                   _this.setData({ districts: _res.data })
                   if (_callback) {
                     _callback(true);
@@ -712,7 +712,7 @@ Component({
         case 0:
           // 加载城市
           (_this.data.provincePromise as any).then((_res: any) => {
-            if (_res.code == 0) {
+            if (_res.code == 200) {
               const selectedProvince = _res.data.find((x: any) => x.id == _id);
               if (!selected || selected.length < 1) {
                 selected = [selectedProvince];
@@ -733,7 +733,7 @@ Component({
           const getCities = mapService.getChildren(selected[0].id);
           this.setData({ cityPromise: getCities });
           (_this.data.cityPromise as any).then((_res: any) => {
-            if (_res.code == 0) {
+            if (_res.code == 200) {
               const selectedCity = _res.data.find((x: any) => x.id == _id);
               if (selected.length < 2) {
                 selected.push(selectedCity);
@@ -754,7 +754,7 @@ Component({
           const getDistricts = mapService.getChildren(selected[1].id);
           this.setData({ districtPromise: getDistricts });
           (_this.data.districtPromise as any).then((_res: any) => {
-            if (_res.code == 0) {
+            if (_res.code == 200) {
               const selectedDistrict: any = _res.data.find((x: any) => x.id == _id);
               selectedDistrict.name = selectedDistrict.fullname;
 

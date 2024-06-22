@@ -252,6 +252,12 @@ export function handleFullPathImagesFromArray(originalArr: Array<string>) {
   return result;
 }
 
+// 校验身份证号码
+export function validIDNum(idNum: string): boolean {
+  const chineseIdCardRegex: RegExp = /(^\d{17}(\d|X|x)$)/;
+  return chineseIdCardRegex.test(idNum);
+}
+
 /**
  * 导出工具类
  */

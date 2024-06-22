@@ -19,6 +19,13 @@ Component({
       value: ''
     },
     /**
+     * 业务类型
+     */
+    busType: {
+      type: Number,
+      value: 1
+    },
+    /**
      * 倒计时时间
      */
     smsNum: {
@@ -95,8 +102,8 @@ Component({
         this.smsCodeTimer();
       }
       // 短信服务
-      smsService.registrationSms(phone).then((_res: any) => {
-        if (_res.code == 0) {
+      smsService.getSmsCaptcha(phone, this.data.busType).then((_res: any) => {
+        if (_res.code == 200) {
           wx.showToast({ title: '验证码已发送', icon: 'none' });
         } else {
           wx.showToast({ title: '验证码发送失败', icon: 'none' });

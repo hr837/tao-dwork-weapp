@@ -3,10 +3,10 @@
   <!--照片上传-->
   <image style="max-height: 100%; max-width: 100%;" mode="aspectFit" wx:if='{{imgUrl}}' src='{{mediaUrl}}/{{imgUrl}}' catchtap="onPreviewImage" />
   <!-- 文件上传提示信息 -->
-  <!-- <text wx:if="{{!imgUrl}}" style="color: #999; font-size: 30rpx;">+{{placeholder}}</text> -->
-  <image style="width: 598rpx; height: 394rpx; " wx:if="{{!imgUrl}}" src="{{placeholder}}" mode="" />
+  <text wx:if="{{!imgUrl}}" style="color: #999; font-size: 30rpx;">+{{placeholder}}</text>
+  <image style="width: 598rpx; height: 394rpx; " wx:if="{{imgUrl}}" src="{{imgUrl}}" mode="" />
 
   <view wx:if='{{imgUrl && showDelete}}' style="position: absolute; top: 10rpx; right: 10rpx; height: 40rpx; width: 40rpx; border-radius: 50%;display: flex; align-items: center; justify-content: center;" catchtap="onClose">
-    <image style="max-height: 72rpx; max-width: 72rpx;" mode="aspectFit" src='/assets/images/icon/delete.png' />
+    <image style="max-height: 72rpx; max-width: 72rpx;" mode="aspectFit" src='/assets/images/icons/delete.png' />
   </view>
 </view>
