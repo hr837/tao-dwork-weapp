@@ -1,2 +1,27 @@
 <!--pages/company/verify/verify.wxml-->
-<text>pages/company/verify/verify.wxml</text>
+<view class="page companyVerify">
+  <view class="companyVerify__top">
+    <t-cell-group theme="card" t-class="companyVerify__item">
+      <t-cell title="法人信息" description="需要准备身份证" hover arrow note="点击填写" bind:click="onCellLegalMasterClick" />
+    </t-cell-group>
+    <t-cell-group theme="card" t-class="companyVerify__item">
+      <t-cell title="企业基本信息" description="需要准备公司信息" hover arrow note="点击填写" bind:click="onCellBaseInfoClick" />
+    </t-cell-group>
+    <t-cell-group theme="card" t-class="companyVerify__item">
+      <t-cell title="证书信息" description="需要准备营业执照" hover arrow note="点击填写" bind:click="onCellUploadCeClick" />
+    </t-cell-group>
+
+    <view class="companyVerify__approve">
+      <t-checkbox block="{{false}}" label="我已阅读并同意" bind:change="onApproveChange" />
+      <t-link size="small" theme="primary" content="钉钉公约、" hover />
+      <t-link size="small" theme="primary" content="组织协议、" hover />
+      <t-link size="small" theme="primary" content="认证规范" hover />
+    </view>
+  </view>
+
+
+  <view class="companyVerify__bottom">
+    <t-button theme="primary" bind:tap="handleSubmit" block>提交认证</t-button>
+  </view>
+
+</view>

@@ -1,1 +1,14 @@
 /* pages/company/base-info/base-info.wxss */
+
+.companyBaseInfo {
+
+  &__label--extra {
+    --td-input-label-max-width: 220rpx;
+  }
+
+  &__buttons {
+    padding: 64rpx 32rpx;
+    display: flex;
+    column-gap: 64rpx;
+  }
+}

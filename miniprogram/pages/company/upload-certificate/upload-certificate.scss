@@ -1,1 +1,39 @@
 /* pages/company/upload-certificate/upload-certificate.wxss */
+
+.uploadCertificate {
+  &__form {
+    padding: 32rpx;
+    background-color: #fff;
+  }
+
+  &__item {
+    margin-bottom: 32rpx;
+
+    // .t-upload__grid-content {
+    //   border: solid 1px #ccc !important;
+    // }
+    .t-grid-item__content {
+      // border: solid 1px #ccc !important;
+      // border-radius: var(--td-upload-radiu, 16rpx);
+    }
+
+    // 上传组件
+    .t-upload__wrapper {
+      width: 100% !important;
+      height: 180rpx !important;
+    }
+
+
+
+    &__title {
+      font-weight: bold;
+      font-size: 34rpx;
+      padding: 16rpx 0;
+    }
+  }
+
+  &__buttons {
+    margin-top: 64rpx;
+    padding: 32rpx;
+  }
+}

@@ -26,4 +26,6 @@
   <t-picker visible="{{scalePickerVisable}}" value="{{scale}}" title="选择规模" cancelBtn="取消" confirmBtn="确认" bind:confirm="onScaleChange">
     <t-picker-item options="{{scaleOptions}}" />
   </t-picker>
+  <!-- 认证询问框 -->
+  <t-dialog visible="{{enquireDialogVisable}}" content="是否进行企业认证？" confirm-btn="{{ { content: '立即认证', theme: 'primary' } }}" cancel-btn="稍后认证" bind:confirm="onDialogConfirm" bind:cancel="onDialogCancel" />
 </view>

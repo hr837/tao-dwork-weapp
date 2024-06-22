@@ -1,1 +1,63 @@
 /* pages/company/legal-master/legal-master.wxss */
+
+
+.companyLegalMaster {
+
+  // 表单
+  &__form {
+    margin-bottom: 16rpx;
+    background-color: #fff;
+  }
+
+  // 上传区域
+  &__form--upload {
+    padding: 32rpx;
+
+  }
+
+  // 上传模块
+  &__upload {
+
+    // 上传组件
+    .t-upload__wrapper {
+      width: 100% !important;
+      height: 180rpx !important;
+    }
+
+    display: flex;
+    margin-top: 32rpx;
+    text-align: center;
+
+    // 底部文字
+    &__text {
+      margin-top: 16rpx;
+      font-size: 28rpx;
+      color: #666;
+    }
+
+    // 上传容器
+    &__item {
+      flex: 1;
+    }
+
+    &__item+&__item {
+      margin-left: 16rpx;
+    }
+  }
+
+  // 底部区域
+  &__bottom {
+    padding: 32rpx;
+
+    &__tip {
+      margin-bottom: 32rpx;
+      font-size: 24rpx;
+      color: #999;
+    }
+
+    &__buttons {
+      display: flex;
+      column-gap: 32rpx;
+    }
+  }
+}

@@ -1,2 +1,21 @@
 <!--pages/company/upload-certificate/upload-certificate.wxml-->
-<text>pages/company/upload-certificate/upload-certificate.wxml</text>
+<view class="page uploadCertificate">
+  <view class="uploadCertificate__form">
+    <!-- 上传营业执照 -->
+    <view class="uploadCertificate__item">
+      <view class="uploadCertificate__item__title">上传营业执照</view>
+      <t-upload bind:change="onBussinessLicenseUpload"  files="{{businessLicenseFiles}}" media-type="{{['image']}}" max="{{2}}" grid-config="{{ {column:2} }}" bind:remove="onBussinessLicenseRemove" bind:add="onBussinessLicenseAdd" />
+    </view>
+
+    <!-- 上传安保服务许可证 -->
+    <view class="uploadCertificate__item">
+      <view class="uploadCertificate__item__title">上传安保服务许可证 </view>
+      <t-upload bind:change="onSafeLicenseUpload" files="{{safeLicenseFiles}}" media-type="{{['image']}}" max="{{2}}" grid-config="{{ {column:2} }}" bind:remove="onSafeLicenseRemove" bind:add="onSafeLicenseAdd" />
+    </view>
+  </view>
+
+
+  <view class="uploadCertificate__buttons">
+    <t-button theme="primary" bind:tap="onSubmit" block>完成</t-button>
+  </view>
+</view>

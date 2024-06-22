@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": { 
+    "t-checkbox": "tdesign-miniprogram/checkbox/checkbox",
+    "t-link": "tdesign-miniprogram/link/link"
+   },
   "navigationBarTitleText": "企业认证"
 }

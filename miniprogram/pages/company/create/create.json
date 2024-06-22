@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+    "t-dialog": "tdesign-miniprogram/dialog/dialog"
   },
   "navigationBarTitleText": "创建企业"
 }

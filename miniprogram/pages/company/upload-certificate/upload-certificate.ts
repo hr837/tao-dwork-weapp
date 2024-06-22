@@ -1,3 +1,5 @@
+import { UploadFile } from "../../../miniprogram_npm/tdesign-miniprogram/upload/type";
+
 // pages/company/upload-certificate/upload-certificate.ts
 Page({
 
@@ -5,62 +7,47 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    _companyId: "",
+    businessLicenseFiles: [] as UploadFile[],
+    safeLicenseFiles: [] as UploadFile[],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad() {
-
+  onLoad(query: { id: string }) {
+    this.setData({ _companyId: query.id });
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
+  //#region 营业执照相关
+  onBussinessLicenseUpload() {
+  },
+  onBussinessLicenseRemove(e: CustomerDetailEvent<{ index: number }>) {
+    const files = this.data.businessLicenseFiles;
+    files.splice(e.detail.index, 1);
+    this.setData({ businessLicenseFiles: files })
+  },
+  onBussinessLicenseAdd(e: CustomerDetailEvent<{ files: [UploadFile] }>) {
+    const files = this.data.businessLicenseFiles.concat(e.detail.files);
+    this.setData({ businessLicenseFiles: files })
+  },
+  //#endregion
+
+  //#region 安保相关
+  onSafeLicenseUpload() {
 
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
+  onSafeLicenseRemove() {
 
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
+  onSafeLicenseAdd() {
 
   },
+  //#endregion
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
+  // 处理点击提交
+  onSubmit() {
+    const query = '?id=' + this.data._companyId;
+    wx.navigateTo({ url: "../verify/verify" + query })
   }
 })

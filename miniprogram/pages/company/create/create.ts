@@ -1,6 +1,5 @@
 // pages/company/create/create.ts
 import Message from '../../../miniprogram_npm/tdesign-miniprogram/message/index';
-
 Page({
 
   /**
@@ -17,6 +16,7 @@ Page({
     area: [] as string[],
     areaText: "",
     areaPickerVisable: false,
+    enquireDialogVisable: false,
     industryOptions: [
       { label: '互联网', value: 'HLW' },
       { label: '制造业', value: 'ZZY' },
@@ -33,8 +33,8 @@ Page({
       { label: '51-100人', value: 'M' },
       { label: '101-500人', value: 'L' },
     ],
+    _companyId: "",
   },
-
   // 企业名称变化，更新data
   onCompanyNameChange(e: CustomerDetailEvent) {
     this.setData({
@@ -44,15 +44,26 @@ Page({
 
   // 用户点击提交
   handleSubmit() {
-    if(!this.data.name){
+    if (!this.data.name) {
       Message.error({
         context: this,
-        closeBtn:true,
+        closeBtn: true,
         content: '请填写企业名称',
       });
       return;
     }
+    this.setData({ enquireDialogVisable: true, _companyId: '123456' });
+
   },
+
+  onDialogConfirm() {
+    const queryStr = '?id=' + this.data._companyId;
+    wx.navigateTo({ url: '/pages/company/verify/verify' + queryStr, })
+  },
+  onDialogCancel() {
+    wx.switchTab({ url: "/pages/index/index" })
+  },
+
 
   //#region area 相关
 

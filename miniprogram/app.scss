@@ -1,5 +1,6 @@
 /**app.wxss**/
 @import "./assets/scss/iconfont.scss";
+
 .container {
   height: 100%;
   display: flex;
@@ -11,24 +12,11 @@
 }
 
 page {
+
   // t-design bug fix
   .t-overlay {
     top: 0 !important;
   }
-
-  // t-design css variable
-  --td-primary-color: #0089FF; // 主题色 [#0052d9]
-  --td-success-color: #00a870; // 成功 [#00a870]
-  --td-warning-color: #ed7b2f; // 警告 [#ed7b2f]
-  --td-error-color: #e34d59; // 失败 [#e34d59]
-
-  // td-button
-  --td-button-primary-bg-color: #0089FF; // [#0B57A5]
-  --td-button-font-weight: 400;
-  --td-button-border-radius: 16rpx;
-
-
-
 
   --primary-background: #F2F2F6;
   --primary-color: #0089FF;
@@ -36,20 +24,36 @@ page {
   --primary-padding: 20rpx;
   --page-padding-bottom: 20rpx;
 
-  background: var(--primary-background);
-  // padding: var(--primary-padding) var(--primary-padding) var(--page-padding-bottom) var(--primary-padding);
+  // t-design css variable
+  -td-primary-color-1: #f2f3ff;
+  -td-primary-color-2: #d9e1ff;
+  -td-primary-color-3: #b5c7ff;
+  -td-primary-color-4: #8eabff;
+  -td-primary-color-5: #618dff;
+  -td-primary-color-6: #366ef4;
+  -td-primary-color-7: #0052d9;
+  -td-primary-color-8: #003cab;
+  -td-primary-color-9: #002a7c;
+  --td-primary-color-10: #001a57;
+
+
+  --td-success-color: #00a870; // 成功 [#00a870]
+  --td-warning-color: #ed7b2f; // 警告 [#ed7b2f]
+  --td-error-color: #e34d59; // 失败 [#e34d59]
+
+  // td-button
+  // --td-button-primary-bg-color: var(--td-primary-color);
+  // --td-button-primary-border-color: var(--td-primary-color);
+  --td-button-font-weight: 400;
+  --td-button-border-radius: 16rpx;
+
+
+
+  background-color: var(--primary-background);
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   min-height: 100%;
-  // width: 100%;
-
-  // font-family: STXihei;
-  // font-size: 30rpx;
-
-  button::after {
-    border: unset;
-  }
 }
 
 // [详情页]预览图的统一设置

@@ -1,2 +1,52 @@
 <!--pages/company/legal-master/legal-master.wxml-->
-<text>pages/company/legal-master/legal-master.wxml</text>
+<view class="page companyLegalMaster">
+  <view class="companyLegalMaster__form">
+    <!-- 姓名输入 -->
+    <t-input label="姓名" placeholder="请输入姓名" bind:input="onNameInput" />
+
+    <!-- 性别输入 -->
+    <t-input label="性别" placeholder="请输入性别" bind:input="onGenderInput" />
+
+    <!-- 身份证号输入 -->
+    <t-input label="身份证" placeholder="请输入身份证号" bind:input="onIdCardInput" />
+
+    <!-- 户籍地址输入 -->
+    <t-input label="户籍地址" placeholder="请输入家庭住址" bind:input="onHukouAddressInput" />
+
+    <!-- 现居地址输入 -->
+    <t-input label="现居地址" placeholder="请输入现居地址" bind:input="onCurrentAddressInput" />
+
+    <!-- 联系方式输入 -->
+    <t-input label="联系方式" placeholder="请输入联系方式" bind:input="onContactInput" />
+
+
+  </view>
+
+  <view class="companyLegalMaster__form companyLegalMaster__form--upload">
+    <view>身份证照片上传</view>
+    <view class="companyLegalMaster__upload">
+      <!-- 身份证正面上传 -->
+      <view class="companyLegalMaster__upload__item">
+        <t-upload bind:change="onIdCardFrontUpload" files="{{frontFiles}}" media-type="{{['image']}}" max="{{1}}" grid-config="{{ {column:1} }}" bind:remove="onIdCardFrontRemove" bind:add="onIdCardFrontAdd" />
+        <view class="companyLegalMaster__upload__text">身份证正面</view>
+      </view>
+      <!-- 身份证反面上传 -->
+      <view class="companyLegalMaster__upload__item">
+        <t-upload bind:change="onIdCardBackUpload" files="{{backFiles}}" media-type="{{['image']}}" max="{{1}}" grid-config="{{ {column:1} }}" bind:remove="onIdCardBackRemove" bind:add="onIdCardBackAdd" />
+        <view class="companyLegalMaster__upload__text">身份证反面</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="companyLegalMaster__bottom">
+    <view class="companyLegalMaster__bottom__tip">
+      *以上信息仅用作认证，平台会保护您的隐私，不会泄露给第三方
+    </view>
+    <div class="companyLegalMaster__bottom__buttons">
+      <!-- 提交按钮 -->
+      <t-button theme="primary" variant="outline" bind:click="onSubmit" block>保存</t-button>
+      <t-button theme="primary" bind:click="onNext" block>下一步</t-button>
+    </div>
+
+  </view>
+</view>

@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "t-upload": "tdesign-miniprogram/upload/upload"
+  },
   "navigationBarTitleText": "填写法人信息"
 }
